@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment="added cli">
-      <change afterPath="$PROJECT_DIR$/translator.py" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment="added cli 1">
+      <change afterPath="$PROJECT_DIR$/anki_exports/cards.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/anki_export.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/cards.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/user_words.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anki_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cefr_filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/cefr_filter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/pdf_reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/translator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vocab_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/vocab_db.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +60,16 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "CLI",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Python apps/smartAnki/input"
+    "last_opened_file_path": "E:/Python apps/smartAnki/smartanki"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Python apps\smartAnki\input" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Python apps\smartAnki\smartanki" />
+      <recent name="E:\Python apps\smartAnki" />
     </key>
   </component>
   <component name="RunManager">
@@ -74,7 +86,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="E:\Python apps\smartAnki\smartanki\main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -124,13 +136,22 @@
       <option name="project" value="LOCAL" />
       <updated>1747996505025</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added cli 1">
+      <option name="closed" value="true" />
+      <created>1747998103686</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747998103686</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init -- scripts" />
     <MESSAGE value="added cli" />
-    <option name="LAST_COMMIT_MESSAGE" value="added cli" />
+    <MESSAGE value="added cli 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="added cli 1" />
   </component>
 </project>

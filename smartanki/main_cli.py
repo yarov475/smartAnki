@@ -1,15 +1,15 @@
 # main_cli.py
 
 import argparse
-import os
-from vocab_db import init_db
-from cefr_filter import CEFRFilter
-from extractor import extract_new_words
-from anki_export import generate_anki_csv
-from pdf_reader import read_pdf_text
+from smartanki.vocab_db import init_db
+from smartanki.cefr_filter import CEFRFilter
+from smartanki.extractor import extract_new_words
+from smartanki.anki_export import generate_anki_csv
+from smartanki.pdf_reader import read_pdf_text
 import warnings
 
 warnings.filterwarnings("ignore", category=UserWarning)
+
 def read_input_text(path):
     if path.lower().endswith(".pdf"):
         return read_pdf_text(path)
