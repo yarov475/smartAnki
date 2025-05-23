@@ -1,0 +1,17 @@
+setup.py
+smartanki/__init__.py
+smartanki/anki_export.py
+smartanki/cefr_filter.py
+smartanki/extractor.py
+smartanki/main.py
+smartanki/main_cli.py
+smartanki/pdf_reader.py
+smartanki/translator.py
+smartanki/utils.py
+smartanki/vocab_db.py
+smartanki.egg-info/PKG-INFO
+smartanki.egg-info/SOURCES.txt
+smartanki.egg-info/dependency_links.txt
+smartanki.egg-info/entry_points.txt
+smartanki.egg-info/requires.txt
+smartanki.egg-info/top_level.txt

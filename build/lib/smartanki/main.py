@@ -2,7 +2,6 @@ from smartanki.cefr_filter import CEFRFilter
 from smartanki.extractor import extract_new_words
 from smartanki.anki_export import generate_anki_csv
 from vocab_db import init_db
-from smartanki.dictionary_api import get_word_data
 
 # Setup
 init_db()
@@ -18,6 +17,3 @@ new_words = extract_new_words(text, cefr, auto_save=True)
 # Generate Anki-ready CSV
 generate_anki_csv(new_words, output_file='../anki_exports/anki_cards.csv')
 print(new_words)
-
-print(get_word_data("xyzzy"))  # Likely not in API, will use WordNet
-print(get_word_data("write"))  # Likely will use API
