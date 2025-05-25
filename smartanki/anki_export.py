@@ -47,20 +47,35 @@ def get_phonetic_placeholder(word):
 def generate_anki_csv(words, output_file='anki_exports/anki_cards.csv'):
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
+    skipped = []
+
     with open(output_file, mode='w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow(["Word", "Phonetic", "Definition", "Example", "POS"])
 
         for word in words:
             word_info = get_word_data(word)
-            if word_info:
-                writer.writerow([
-                    word_info["word"],
-                    word_info["phonetic"],
-                    word_info["definition"],
-                    word_info["example"],
-                    word_info["part_of_speech"]
-                ])
-            else:
-                writer.writerow([word, "", "", "", ""])
-    print(f"✅ Anki CSV created: {output_file}")
+
+            if not word_info:
+                print(f"⚠️ Skipping '{word}' – no data from API or fallback.")
+                skipped.append(word)
+                continue
+
+            if not word_info["definition"].strip() and not word_info.get("translation", "").strip():
+                print(f"⚠️ Skipping '{word}' – no definition or translation found.")
+                skipped.append(word)
+                continue
+
+            writer.writerow([
+                word_info["word"],
+                word_info["phonetic"],
+                word_info["definition"],
+                word_info["example"],
+                word_info["part_of_speech"]
+            ])
+
+    print(f"\n📤 Export complete. Skipped {len(skipped)} words due to missing info.")
+    if skipped:
+        print("📝 Skipped words:")
+        for word in skipped:
+            print(f"  - {word}")
