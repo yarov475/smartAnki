@@ -10,17 +10,29 @@ import warnings
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
+
 def read_input_text(path):
     if path.lower().endswith(".pdf"):
         return read_pdf_text(path)
     with open(path, 'r', encoding='utf-8') as f:
         return f.read()
 
+
 def main():
     parser = argparse.ArgumentParser(description="📘 SmartAnki CLI – CEFR Vocabulary Extractor")
     parser.add_argument("filepath", help="Path to input file (.pdf or .txt)")
     parser.add_argument("--cefr", default="B2", help="User CEFR level (default: B2)")
     parser.add_argument("--csv", default="anki_exports/anki_cards.csv", help="Output CSV path")
+    parser.add_argument(
+        "--no-save",
+        action="store_true",
+        help="Don't store extracted words in the known words database"
+    )
+    parser.add_argument(
+        "--no-lemmatize",
+        action="store_true",
+        help="Disable lemmatization (by default, words are lemmatized)"
+    )
 
     args = parser.parse_args()
 
@@ -35,7 +47,13 @@ def main():
 
     # Step 3: Extract words
     print("🧠 Extracting new words...")
-    new_words = extract_new_words(text, cefr, auto_save=True)
+    new_words = extract_new_words(
+        text,
+        cefr,
+        auto_save=not args.no_save,
+        lemmatize=not args.no_lemmatize
+    )
+
     print(f"✅ {len(new_words)} new words found and added to database.")
 
     # Step 4: Export Anki CSV
@@ -43,6 +61,7 @@ def main():
     generate_anki_csv(new_words, args.csv)
 
     print("🎉 Done! You can now import the CSV into Anki.")
+
 
 if __name__ == "__main__":
     main()

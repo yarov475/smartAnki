@@ -1,13 +1,13 @@
-
-
 import spacy
+
 from smartanki.cefr_filter import CEFRFilter
 from smartanki.vocab_db import is_known, add_known_words
 
 nlp = spacy.load("en_core_web_sm")
 nlp.max_length = 2_000_000
 
-def extract_new_words(text: str, cefr_filter: CEFRFilter, auto_save=True) -> list:
+
+def extract_new_words(text: str, cefr_filter, auto_save=True,lemmatize=True) -> list:
     """Tokenizes input text and returns new words above user level.
     Optionally adds them to the known words DB.
     """
@@ -18,7 +18,7 @@ def extract_new_words(text: str, cefr_filter: CEFRFilter, auto_save=True) -> lis
         if not token.is_alpha:
             continue
 
-        word = token.text.lower().strip()
+        word = token.lemma_.lower() if lemmatize else token.text.lower()
 
         if is_known(word):
             continue
