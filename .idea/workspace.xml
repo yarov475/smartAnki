@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment="smartanki FEAT lemmatizing, no save to usersword db">
-      <change afterPath="$PROJECT_DIR$/anki_exports/smple_lemmatize.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/anki_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_export.py" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment="FEAT: skipping word if no translation">
+      <change afterPath="$PROJECT_DIR$/anki_exports/smple_lemmatize-skip.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/cefr_filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/cefr_filter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748197220520</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="FEAT: skipping word if no translation">
+      <option name="closed" value="true" />
+      <created>1748197491731</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1748197491731</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -160,6 +169,7 @@
     <MESSAGE value="added cli 1" />
     <MESSAGE value="smartanki 1 -- working" />
     <MESSAGE value="smartanki FEAT lemmatizing, no save to usersword db" />
-    <option name="LAST_COMMIT_MESSAGE" value="smartanki FEAT lemmatizing, no save to usersword db" />
+    <MESSAGE value="FEAT: skipping word if no translation" />
+    <option name="LAST_COMMIT_MESSAGE" value="FEAT: skipping word if no translation" />
   </component>
 </project>
