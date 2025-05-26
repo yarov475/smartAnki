@@ -2,7 +2,7 @@ import spacy
 from smartanki.vocab_db import is_known, add_known_words
 
 nlp = spacy.load("en_core_web_sm")
-
+nlp.max_length = 2_000_000
 
 def extract_new_words(text: str, cefr_filter, auto_save=True, lemmatize=True, debug_cefr=False):
     doc = nlp(text)

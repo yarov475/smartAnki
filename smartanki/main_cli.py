@@ -9,6 +9,7 @@ from smartanki.extractor import extract_new_words
 from smartanki.anki_export import generate_anki_csv
 from smartanki.anki_package_export import generate_anki_package
 from smartanki.pdf_reader import read_pdf_text
+from smartanki.anki_import import import_known_words_from_anki
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -22,7 +23,7 @@ def read_input_text(path):
 
 def main():
     parser = argparse.ArgumentParser(description="📘 SmartAnki CLI – CEFR Vocabulary Extractor + Anki Deck Generator")
-    parser.add_argument("filepath", help="Path to input file (.pdf or .txt)")
+    parser.add_argument("filepath", nargs="?", help="Path to input file (.pdf or .txt)")
     parser.add_argument("--cefr", default="B2", help="User CEFR level (default: B2)")
     parser.add_argument("--csv", default="anki_exports/anki_cards.csv", help="CSV output path")
     parser.add_argument("--no-save", action="store_true", help="Don't save new words to database")
@@ -32,8 +33,24 @@ def main():
     parser.add_argument("--tags", nargs="*", default=[], help="Custom tags for each card (space-separated)")
     parser.add_argument("--deck-name", default="SmartAnki Vocabulary Deck", help="Name of the Anki deck")
     parser.add_argument("--debug-cefr", action="store_true", help="Print CEFR debug info")
+    parser.add_argument(
+        "--import-anki-csv",
+        help="Import known words from a raw Anki-exported CSV (any format)"
+    )
+    parser.add_argument(
+        "--only-import-anki",
+        action="store_true",
+        help="Only import Anki CSV and exit (no extraction or export)"
+    )
 
     args = parser.parse_args()
+    if args.import_anki_csv:
+        print(f"📥 Importing known words from: {args.import_anki_csv}")
+        import_known_words_from_anki(args.import_anki_csv)
+
+        if args.only_import_anki:
+            print("✅ Done. Imported known words only. Exiting.")
+            return
 
     # STEP 1: Init DB + Filters
     print("🔧 Initializing database and filters...")

@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: visible tags">
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: progrese bar">
+      <change afterPath="$PROJECT_DIR$/anki_exports/Sample.apkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/Sample2.apkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/Sample_3.apkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/Sample_4.apkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/dune_c1.apkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/anki_import.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/anki_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/user_words.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/anki_package_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_package_export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/dictionary_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/dictionary_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/extractor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/pdf_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/pdf_reader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +217,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748263362797</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary=" feat: progrese bar">
+      <option name="closed" value="true" />
+      <created>1748264575781</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1748264575781</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -225,6 +242,7 @@
     <MESSAGE value=" feat: added  --not-translate  Disable sentence translation (enabled by default)" />
     <MESSAGE value=" feat: added  apkg generation" />
     <MESSAGE value=" feat: visible tags" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat: visible tags" />
+    <MESSAGE value=" feat: progrese bar" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat: progrese bar" />
   </component>
 </project>

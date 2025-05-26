@@ -5,7 +5,7 @@ import os
 from smartanki.dictionary_api import get_word_data
 from smartanki.translator import translate_to_russian
 from smartanki.anki_export import highlight_word
-from tqdm import tqdm
+
 
 
 def generate_anki_package(
@@ -55,7 +55,7 @@ def generate_anki_package(
 
     skipped = []
 
-    for word, sentence in tqdm(word_sentence_map.items(), desc="📦 Creating Anki notes", unit="word"):
+    for word, sentence in word_sentence_map.items():
         word_info = get_word_data(word)
         if not word_info or not word_info["definition"].strip():
             skipped.append(word)
