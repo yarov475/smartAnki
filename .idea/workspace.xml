@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: added translation of sentsnses">
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: added  --not-translate  Disable sentence translation (enabled by default)">
+      <change afterPath="$PROJECT_DIR$/anki_exports/examples-translated-debug_5_google.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/examples-translated-debug_6_google-hignlitr-2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/examples-translated-debug_6_google-hignlitr-3.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/examples-translated-debug_6_google-hignlitr.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/examples-translated-debug_not-translate_google.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/anki_package_export.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/anki_cards.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/cards.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/cerfp-debug.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/cerfpc2-debug.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/cerfpy.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/examples-debug.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/examples-translated-debu2g.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/examples-translated-debug.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/examples-translated-debug_3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/smple_lemmatize-skip.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/smple_lemmatize.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/smple_no_lemmatize.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/input/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/sample.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/anki_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_export.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
@@ -196,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748257128531</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary=" feat: added  --not-translate  Disable sentence translation (enabled by default)">
+      <option name="closed" value="true" />
+      <created>1748257802128</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1748257802128</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -210,6 +212,7 @@
     <MESSAGE value="using cefrpy" />
     <MESSAGE value=" feat: Added separation to sentenses" />
     <MESSAGE value=" feat: added translation of sentsnses" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat: added translation of sentsnses" />
+    <MESSAGE value=" feat: added  --not-translate  Disable sentence translation (enabled by default)" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat: added  --not-translate  Disable sentence translation (enabled by default)" />
   </component>
 </project>

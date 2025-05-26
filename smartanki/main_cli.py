@@ -6,6 +6,8 @@ from smartanki.cefr_filter import CEFRFilter
 from smartanki.extractor import extract_new_words
 from smartanki.anki_export import generate_anki_csv
 from smartanki.pdf_reader import read_pdf_text
+from smartanki.anki_package_export import generate_anki_package
+
 import warnings
 
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -43,6 +45,11 @@ def main():
         action="store_true",
         help="Disable sentence translation (enabled by default)"
     )
+    parser.add_argument(
+        "--export-apkg",
+        action="store_true",
+        help="Export Anki .apkg deck (instead of just CSV)"
+    )
 
     args = parser.parse_args()
 
@@ -75,8 +82,14 @@ def main():
         args.csv,
         translate=not args.not_translate
     )
+    if args.export_apkg:
+        generate_anki_package(word_sentence_map, "anki_exports/smartanki.apkg", translate=not args.not_translate)
+        print("🎉 Done! You can now anki package  into Anki.")
+    else:
+        generate_anki_csv(word_sentence_map, args.csv, translate=not args.not_translate)
+        print("🎉 Done! You can now import the CSV into Anki.")
 
-    print("🎉 Done! You can now import the CSV into Anki.")
+
 
     if __name__ == "__main__":
         main()

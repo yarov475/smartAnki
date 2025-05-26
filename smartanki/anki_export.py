@@ -1,8 +1,14 @@
 import csv
 import os
+import re
 from nltk.corpus import wordnet
 from smartanki.dictionary_api import get_word_data
 from smartanki.translator import translate_to_russian
+
+
+def highlight_word(text: str, word: str):
+    pattern = re.compile(rf'\b({re.escape(word)})\b', re.IGNORECASE)
+    return pattern.sub(r'<b>\1</b>', text)
 
 
 def get_definition_and_example(word):
@@ -47,29 +53,39 @@ def generate_anki_csv(word_sentence_map, output_file='anki_exports/anki_cards.cs
 
         for word, sentence in word_sentence_map.items():
             word_info = get_word_data(word)
-
-            if not word_info:
-                print(f"❌  Skipping '{word}' – no dictionary data.")
+            if not word_info or not word_info["definition"].strip():
+                print(f"⚠️ Skipping '{word}' – no dictionary data.")
                 skipped.append(word)
                 continue
 
-            if not word_info["definition"].strip() and not word_info.get("translation", "").strip():
-                print(f"❌  Skipping '{word}' – no definition or translation found.")
-                skipped.append(word)
-                continue
+            # Highlight English word in English sentence
+            highlighted_example = highlight_word(sentence, word)
 
-            # Use the real-sentence context instead of the API example
-            example = sentence or word_info["example"]
-            translation = translate_to_russian(example) if translate else ""
+            translation = ""
+            if translate:
+                translated_sentence = translate_to_russian(sentence)
+                translated_word = translate_to_russian(word)
+
+                # Now try to highlight the translated word in the translated sentence
+                if translated_word and translated_word in translated_sentence:
+                    translation = highlight_word(translated_sentence, translated_word)
+                else:
+                    translation = translated_sentence  # fallback without highlighting
 
             writer.writerow([
                 word_info["word"],
                 word_info["phonetic"],
                 word_info["definition"],
-                example,
+                highlighted_example,
                 translation,
                 word_info["part_of_speech"]
             ])
+
+    print(f"\n📤 Export complete. Skipped {len(skipped)} words due to missing info.")
+    if skipped:
+        print("📝 Skipped words:")
+        for word in skipped:
+            print(f"  - {word}")
 
     print(f"\n📤 Export complete. Skipped {len(skipped)} words due to missing info.")
     if skipped:
