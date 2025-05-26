@@ -23,13 +23,11 @@ print(get_word_data("xyzzy"))  # Likely not in API, will use WordNet
 print(get_word_data("write"))  # Likely will use API
 
 #  TODO
-# 1. Add separation to sentenses
-# 2. Add sentsnse tranlation to russian
-# 3. beter anki making
+#
 #  4. pages diapazon
 # 5 different output anki list
 # 6 add media
-# 7 working with database pure import see
+
 # 8 work with html pnj jpeg
 # 9 fewquensy lists and ordering
 

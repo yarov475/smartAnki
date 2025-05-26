@@ -10,15 +10,36 @@ from smartanki.anki_export import generate_anki_csv
 from smartanki.anki_package_export import generate_anki_package
 from smartanki.pdf_reader import read_pdf_text
 from smartanki.anki_import import import_known_words_from_anki
+from smartanki.pdf_reader import read_pdf_text
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
 
-def read_input_text(path):
-    if path.lower().endswith(".pdf"):
-        return read_pdf_text(path)
-    with open(path, 'r', encoding='utf-8') as f:
-        return f.read()
+def read_input_text(path, page_range=None):
+    """
+    Reads text from a .txt or .pdf file.
+
+    Args:
+        path (str): Path to the input file.
+        page_range (tuple[int, int] or None): Optional 0-based page range (start, end) for PDFs.
+
+    Returns:
+        str: The full text extracted from the file.
+
+    Raises:
+        ValueError: If the file extension is unsupported.
+    """
+    path = path.strip().lower()
+
+    if path.endswith(".pdf"):
+        return read_pdf_text(path, page_range)
+
+    elif path.endswith(".txt"):
+        with open(path, 'r', encoding='utf-8') as f:
+            return f.read()
+
+    else:
+        raise ValueError(f"❌ Unsupported file type: {path}. Use a .pdf or .txt file.")
 
 
 def main():
@@ -38,6 +59,11 @@ def main():
         help="Import known words from a raw Anki-exported CSV (any format)"
     )
     parser.add_argument(
+        "--pdf-pages",
+        help="Page range to extract from PDF (e.g. 2-5). First page is 1."
+    )
+
+    parser.add_argument(
         "--only-import-anki",
         action="store_true",
         help="Only import Anki CSV and exit (no extraction or export)"
@@ -52,6 +78,13 @@ def main():
             print("✅ Done. Imported known words only. Exiting.")
             return
 
+    def parse_page_range(range_str):
+        try:
+            start, end = map(int, range_str.split("-"))
+            return start - 1, end - 1  # Convert to 0-based index
+        except Exception:
+            raise ValueError("❌ Invalid format for --pdf-pages. Use e.g. 2-5")
+
     # STEP 1: Init DB + Filters
     print("🔧 Initializing database and filters...")
     with tqdm(total=3, desc="🔧 Setup", unit="step") as pbar:
@@ -65,12 +98,24 @@ def main():
     print("✅ Setup complete.\n")
 
     # STEP 2: Read File
+    # STEP 2: Read File
     print(f"📖 Reading from {args.filepath}...")
-    text = ""
+
+    # Parse PDF page range (if provided)
+    page_range = None
+    if args.pdf_pages:
+        try:
+            start, end = map(int, args.pdf_pages.split("-"))
+            page_range = (start - 1, end - 1)  # 0-based indexing
+        except ValueError:
+            raise ValueError("❌ Invalid format for --pdf-pages. Use e.g. 2-5")
+
+    # Read and show progress
     with tqdm(total=1, desc="📖 Reading file", unit="file") as pbar:
-        text = read_input_text(args.filepath)
+        text = read_input_text(args.filepath, page_range=page_range)
         pbar.update(1)
-    print("✅ File loaded.\n")
+
+    print(f"✅ File loaded. Length: {len(text):,} characters.\n")
 
     # STEP 3: Extract Words
     print("🧠 Extracting new words...")

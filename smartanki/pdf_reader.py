@@ -1,15 +1,20 @@
 import pdfplumber
 import logging
 
-# Suppress annoying CropBox logging from pdfminer
 logging.getLogger("pdfminer").setLevel(logging.ERROR)
 
-
-def read_pdf_text(path):
+def read_pdf_text(path, page_range=None):
     full_text = ""
     with pdfplumber.open(path) as pdf:
-        for page in pdf.pages:
-            page_text = page.extract_text()
-            if page_text:
-                full_text += page_text + "\n"
+        start = 0
+        end = len(pdf.pages) - 1
+        if page_range:
+            start, end = page_range
+            end = min(end, len(pdf.pages) - 1)
+
+        for i in range(start, end + 1):
+            page = pdf.pages[i]
+            text = page.extract_text()
+            if text:
+                full_text += text + "\n"
     return full_text
