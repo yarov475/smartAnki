@@ -24,7 +24,7 @@ print(get_word_data("write"))  # Likely will use API
 
 #  TODO
 #
-#  4. pages diapazon
+#
 # 5 different output anki list
 # 6 add media
 

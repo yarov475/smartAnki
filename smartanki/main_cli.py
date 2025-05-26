@@ -11,6 +11,7 @@ from smartanki.anki_package_export import generate_anki_package
 from smartanki.pdf_reader import read_pdf_text
 from smartanki.anki_import import import_known_words_from_anki
 from smartanki.pdf_reader import read_pdf_text
+from smartanki.pdf_export import export_wordlist_to_pdf
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -68,6 +69,10 @@ def main():
         action="store_true",
         help="Only import Anki CSV and exit (no extraction or export)"
     )
+    parser.add_argument(
+        "--pdf-output",
+        help="Optional: path to save the extracted words as a PDF word list"
+    )
 
     args = parser.parse_args()
     if args.import_anki_csv:
@@ -97,7 +102,6 @@ def main():
         pbar.update(1)  # Placeholder for any setup steps
     print("✅ Setup complete.\n")
 
-    # STEP 2: Read File
     # STEP 2: Read File
     print(f"📖 Reading from {args.filepath}...")
 
@@ -131,7 +135,8 @@ def main():
         pbar.update(1)
 
     print(f"✅ {len(word_sentence_map)} new words found and added to database.\n")
-
+    if args.pdf_output:
+        export_wordlist_to_pdf(word_sentence_map, args.pdf_output)
     # STEP 4: Export
     if args.export_apkg:
         print(f"📦 Generating Anki deck: {args.deck_name}")
