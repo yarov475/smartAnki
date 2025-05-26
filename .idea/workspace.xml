@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: added  --not-translate  Disable sentence translation (enabled by default)">
-      <change afterPath="$PROJECT_DIR$/anki_exports/examples-translated-debug_5_google.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anki_exports/examples-translated-debug_6_google-hignlitr-2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anki_exports/examples-translated-debug_6_google-hignlitr-3.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anki_exports/examples-translated-debug_6_google-hignlitr.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anki_exports/examples-translated-debug_not-translate_google.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartanki/anki_package_export.py" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: added  apkg generation">
+      <change afterPath="$PROJECT_DIR$/anki_exports/anki_cards.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/smartanki.apkg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/sample.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/anki_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anki_exports/examples-translated-debug_6_google-hignlitr-3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/anki_exports/examples-translated-debug_6_google-hignlitr-3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/anki_package_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_package_export.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -198,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748257802128</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary=" feat: added  apkg generation">
+      <option name="closed" value="true" />
+      <created>1748260556887</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1748260556887</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -213,6 +217,7 @@
     <MESSAGE value=" feat: Added separation to sentenses" />
     <MESSAGE value=" feat: added translation of sentsnses" />
     <MESSAGE value=" feat: added  --not-translate  Disable sentence translation (enabled by default)" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat: added  --not-translate  Disable sentence translation (enabled by default)" />
+    <MESSAGE value=" feat: added  apkg generation" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat: added  apkg generation" />
   </component>
 </project>

@@ -6,7 +6,16 @@ from smartanki.dictionary_api import get_word_data
 from smartanki.translator import translate_to_russian
 from smartanki.anki_export import highlight_word
 
-def generate_anki_package(word_sentence_map, output_path="anki_exports/smartanki.apkg", translate=True):
+def generate_anki_package(
+    word_sentence_map,
+    cefr_filter,
+    output_path="anki_exports/smartanki.apkg",
+    translate=True,
+    custom_tags=None
+):
+    if custom_tags is None:
+        custom_tags = []
+
     model = genanki.Model(
         model_id=1607392319,
         name='SmartAnkiModel',
@@ -17,12 +26,21 @@ def generate_anki_package(word_sentence_map, output_path="anki_exports/smartanki
             {"name": "Example"},
             {"name": "Translation"},
             {"name": "POS"},
+            {"name": "Tags"},
         ],
         templates=[
             {
-                "name": "Card 1",
+                "name": "SmartAnki Card",
                 "qfmt": "<div style='font-size:20px'><b>{{Word}}</b> <i>{{Phonetic}}</i></div>",
-                "afmt": "{{FrontSide}}<hr><div style='font-size:18px'>{{Definition}}</div><br><div style='color:blue'>{{Example}}</div><br><div style='color:green'>{{Translation}}</div><br><i>{{POS}}</i>",
+                "afmt": """
+{{FrontSide}}
+<hr>
+<div style='font-size:18px'><b>Definition:</b><br>{{Definition}}</div><br>
+<div style='color:blue'><b>Example:</b><br>{{Example}}</div><br>
+<div style='color:green'><b>Translation:</b><br>{{Translation}}</div><br>
+<div style='font-style:italic'><b>Part of speech:</b> {{POS}}</div>
+<div style='font-style:italic'><b>Part of speech:</b> {{Tags}}</div>
+""",
             }
         ]
     )
@@ -37,7 +55,6 @@ def generate_anki_package(word_sentence_map, output_path="anki_exports/smartanki
     for word, sentence in word_sentence_map.items():
         word_info = get_word_data(word)
         if not word_info or not word_info["definition"].strip():
-            print(f"⚠️ Skipping '{word}' – no definition available.")
             skipped.append(word)
             continue
 
@@ -54,6 +71,16 @@ def generate_anki_package(word_sentence_map, output_path="anki_exports/smartanki
             else:
                 translation = translated_sentence
 
+        # 🔍 Get CEFR level and source for tagging
+        level, source = cefr_filter.get_cefr_level(word, debug=False)
+
+        tags = list(custom_tags)  # Start with user-defined tags
+        if level:
+            tags.append(f"cefr::{level}")
+        if source:
+            tags.append(f"source::{source}")
+
+        visible_tags = ", ".join(tags)
         note = genanki.Note(
             model=model,
             fields=[
@@ -62,15 +89,14 @@ def generate_anki_package(word_sentence_map, output_path="anki_exports/smartanki
                 word_info["definition"],
                 highlighted_example,
                 translation,
-                word_info["part_of_speech"]
-            ]
+                word_info["part_of_speech"],
+                visible_tags
+            ],
+            tags=tags
         )
 
         deck.add_note(note)
 
-    # Ensure output folder exists
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-
-    # Save deck to file
     genanki.Package(deck).write_to_file(output_path)
     print(f"📦 Anki deck exported to {output_path}")

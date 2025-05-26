@@ -1,14 +1,19 @@
 # main_cli.py
 
 import argparse
+
+from smartanki import cefr_filter
 from smartanki.vocab_db import init_db
-from smartanki.cefr_filter import CEFRFilter
 from smartanki.extractor import extract_new_words
 from smartanki.anki_export import generate_anki_csv
 from smartanki.pdf_reader import read_pdf_text
 from smartanki.anki_package_export import generate_anki_package
+from smartanki.cefr_filter import CEFRFilter
+
+
 
 import warnings
+
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -50,6 +55,12 @@ def main():
         action="store_true",
         help="Export Anki .apkg deck (instead of just CSV)"
     )
+    parser.add_argument(
+        "--tags",
+        nargs="*",
+        default=[],
+        help="Custom tags to add to every Anki card (space-separated, e.g. --tags cefr::B2 topic::science)"
+    )
 
     args = parser.parse_args()
 
@@ -57,6 +68,7 @@ def main():
     print("🔧 Initializing database and filters...")
     init_db()
     cefr = CEFRFilter("data/cefr_wordlist.csv", args.cefr.upper())
+
 
     # Step 2: Load text
     print(f"📖 Reading from {args.filepath}...")
@@ -83,13 +95,18 @@ def main():
         translate=not args.not_translate
     )
     if args.export_apkg:
-        generate_anki_package(word_sentence_map, "anki_exports/smartanki.apkg", translate=not args.not_translate)
+        cefr = CEFRFilter("data/cefr_wordlist.csv", args.cefr.upper())
+        generate_anki_package(
+            word_sentence_map,
+            cefr,
+            output_path="anki_exports/smartanki.apkg",
+            translate=not args.not_translate,
+            custom_tags=args.tags
+        )
         print("🎉 Done! You can now anki package  into Anki.")
     else:
-        generate_anki_csv(word_sentence_map, args.csv, translate=not args.not_translate)
+        generate_anki_csv(word_sentence_map, args.csv, translate=not args.not_translate, custom_tags=args.tags)
         print("🎉 Done! You can now import the CSV into Anki.")
-
-
 
     if __name__ == "__main__":
         main()
