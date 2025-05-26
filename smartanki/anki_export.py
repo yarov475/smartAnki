@@ -37,14 +37,13 @@ def get_phonetic_placeholder(word):
     return f"/{word}/"
 
 
-def generate_anki_csv(word_sentence_map, output_file='anki_exports/anki_cards.csv'):
+def generate_anki_csv(word_sentence_map, output_file='anki_exports/anki_cards.csv', translate=True):
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     skipped = []
 
     with open(output_file, mode='w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow(["Word", "Phonetic", "Definition", "Example", "Translation", "POS"])
-
 
         for word, sentence in word_sentence_map.items():
             word_info = get_word_data(word)
@@ -61,7 +60,7 @@ def generate_anki_csv(word_sentence_map, output_file='anki_exports/anki_cards.cs
 
             # Use the real-sentence context instead of the API example
             example = sentence or word_info["example"]
-            translation = translate_to_russian(example)
+            translation = translate_to_russian(example) if translate else ""
 
             writer.writerow([
                 word_info["word"],

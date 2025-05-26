@@ -38,6 +38,11 @@ def main():
         action="store_true",
         help="Print source of CEFR level for each word"
     )
+    parser.add_argument(
+        "--not-translate",
+        action="store_true",
+        help="Disable sentence translation (enabled by default)"
+    )
 
     args = parser.parse_args()
 
@@ -65,7 +70,11 @@ def main():
 
     # Step 4: Export Anki CSV
     print(f"💾 Exporting Anki cards to {args.csv}...")
-    generate_anki_csv(word_sentence_map, args.csv)
+    generate_anki_csv(
+        word_sentence_map,
+        args.csv,
+        translate=not args.not_translate
+    )
 
     print("🎉 Done! You can now import the CSV into Anki.")
 
