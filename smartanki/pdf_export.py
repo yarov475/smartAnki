@@ -5,6 +5,21 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.units import cm
 from smartanki.dictionary_api import get_word_data
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase import pdfmetrics
+from reportlab.lib.styles import ParagraphStyle
+from reportlab.lib.enums import TA_LEFT
+
+# Register custom font
+pdfmetrics.registerFont(TTFont("DejaVu", "smartanki/fonts/DejaVuSans.ttf"))
+
+custom_style = ParagraphStyle(
+    "Custom",
+    fontName="DejaVu",
+    fontSize=10.5,
+    leading=14,
+    alignment=TA_LEFT,
+)
 
 def export_wordlist_to_pdf(word_sentence_map, output_path="anki_exports/wordlist.pdf"):
     doc = SimpleDocTemplate(output_path, pagesize=A4, title="SmartAnki Word List")
@@ -23,7 +38,7 @@ def export_wordlist_to_pdf(word_sentence_map, output_path="anki_exports/wordlist
         # Example
         entry += f"<b>Example:</b> {sentence}<br/><br/>"
 
-        elements.append(Paragraph(entry, styles["Normal"]))
+        elements.append(Paragraph(entry, custom_style))
         elements.append(Spacer(1, 0.5 * cm))
 
     doc.build(elements)
