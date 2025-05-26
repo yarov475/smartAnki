@@ -1,37 +1,30 @@
 import spacy
-
-from smartanki.cefr_filter import CEFRFilter
 from smartanki.vocab_db import is_known, add_known_words
 
 nlp = spacy.load("en_core_web_sm")
-nlp.max_length = 2_000_000
 
 
-def extract_new_words(text: str, cefr_filter, auto_save=True,lemmatize=True) -> list:
-    """Tokenizes input text and returns new words above user level.
-    Optionally adds them to the known words DB.
-    """
+def extract_new_words(text: str, cefr_filter, auto_save=True, lemmatize=True, debug_cefr=False):
     doc = nlp(text)
-    new_words = set()
+    new_word_entries = {}  # word → example sentence
 
-    for token in doc:
-        if not token.is_alpha:
-            continue
+    for sent in doc.sents:
+        for token in sent:
+            if not token.is_alpha:
+                continue
 
-        word = token.lemma_.lower() if lemmatize else token.text.lower()
+            word = token.lemma_.lower() if lemmatize else token.text.lower()
 
-        if is_known(word):
-            continue
+            if is_known(word):
+                continue
 
-        if not cefr_filter.is_above_user_level(word):
-            continue
+            if not cefr_filter.is_above_user_level(word, debug=debug_cefr):
+                continue
 
-        new_words.add(word)
+            if word not in new_word_entries:
+                new_word_entries[word] = sent.text.strip()
 
-    new_words = sorted(new_words)
+    if auto_save and new_word_entries:
+        add_known_words(list(new_word_entries.keys()))
 
-    # Automatically save to DB if flag is on
-    if auto_save and new_words:
-        add_known_words(new_words)
-
-    return new_words
+    return new_word_entries  # 🔁 Now returns dict {word: sentence}

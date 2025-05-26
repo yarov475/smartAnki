@@ -33,6 +33,11 @@ def main():
         action="store_true",
         help="Disable lemmatization (by default, words are lemmatized)"
     )
+    parser.add_argument(
+        "--debug-cefr",
+        action="store_true",
+        help="Print source of CEFR level for each word"
+    )
 
     args = parser.parse_args()
 
@@ -47,21 +52,22 @@ def main():
 
     # Step 3: Extract words
     print("🧠 Extracting new words...")
-    new_words = extract_new_words(
+    word_sentence_map = extract_new_words(
         text,
         cefr,
         auto_save=not args.no_save,
-        lemmatize=not args.no_lemmatize
+        lemmatize=not args.no_lemmatize,
+        debug_cefr=args.debug_cefr
     )
 
-    print(f"✅ {len(new_words)} new words found and added to database.")
+    word_count = len(word_sentence_map)
+    print(f"✅ {word_count} new words found and added to database.")
 
     # Step 4: Export Anki CSV
     print(f"💾 Exporting Anki cards to {args.csv}...")
-    generate_anki_csv(new_words, args.csv)
+    generate_anki_csv(word_sentence_map, args.csv)
 
     print("🎉 Done! You can now import the CSV into Anki.")
 
-
-if __name__ == "__main__":
-    main()
+    if __name__ == "__main__":
+        main()
