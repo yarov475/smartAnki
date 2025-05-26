@@ -3,7 +3,13 @@
 import sqlite3
 from typing import List
 
-DB_PATH = 'db/user_words.db'
+import os
+
+DB_DIR = os.path.join(os.path.dirname(__file__), '..', 'db')
+os.makedirs(DB_DIR, exist_ok=True)  # ✅ Ensure folder exists
+
+DB_PATH = os.path.join(DB_DIR, 'user_words.db')
+
 
 def init_db():
     """Create the database and the table if not exists."""
@@ -17,6 +23,7 @@ def init_db():
     conn.commit()
     conn.close()
 
+
 def add_known_words(words: List[str]):
     """Add a list of words to the known words database."""
     conn = sqlite3.connect(DB_PATH)
@@ -25,6 +32,7 @@ def add_known_words(words: List[str]):
         c.execute('INSERT OR IGNORE INTO known_words (word) VALUES (?)', (word.lower(),))
     conn.commit()
     conn.close()
+
 
 def is_known(word: str) -> bool:
     """Check if a word is already known."""
@@ -35,6 +43,7 @@ def is_known(word: str) -> bool:
     conn.close()
     return result is not None
 
+
 def import_from_csv(csv_path: str):
     """Import known words from an existing Anki-style CSV."""
     import csv
@@ -42,6 +51,8 @@ def import_from_csv(csv_path: str):
         reader = csv.reader(f)
         words = [row[0].strip().lower() for row in reader if row]
     add_known_words(words)
+
+
 def list_known_words():
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()

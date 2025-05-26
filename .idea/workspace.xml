@@ -4,22 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/smartAnki.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anki_export.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cefr_filter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/cefr_wordlist.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/user_anki.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extractor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vocab_db.py" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: export pdf not clean font">
+      <change afterPath="$PROJECT_DIR$/smartanki/fonts/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/pdf_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/pdf_export.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -50,15 +43,26 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.dictionary_api.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;Python.utils.executor&quot;: &quot;Run&quot;,
     &quot;Python.vocab_db.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
+    &quot;git-widget-placeholder&quot;: &quot;CLI&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Python apps/smartAnki/smartanki&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Python apps\smartAnki\input" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Python apps\smartAnki\smartanki" />
+      <recent name="E:\Python apps\smartAnki" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="smartAnki" />
@@ -73,7 +77,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="E:\Python apps\smartAnki\smartanki\main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -99,9 +103,163 @@
       <option name="presentableId" value="Default" />
       <updated>1747498568059</updated>
     </task>
+    <task id="LOCAL-00001" summary="init -- scripts">
+      <option name="closed" value="true" />
+      <created>1747994805356</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747994805357</updated>
+    </task>
+    <task id="LOCAL-00002" summary="init -- scripts">
+      <option name="closed" value="true" />
+      <created>1747994929655</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1747994929655</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added cli">
+      <option name="closed" value="true" />
+      <created>1747996505025</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747996505025</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added cli 1">
+      <option name="closed" value="true" />
+      <created>1747998103686</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747998103686</updated>
+    </task>
+    <task id="LOCAL-00005" summary="smartanki 1 -- working">
+      <option name="closed" value="true" />
+      <created>1748000141894</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1748000141894</updated>
+    </task>
+    <task id="LOCAL-00006" summary="smartanki FEAT lemmatizing, no save to usersword db">
+      <option name="closed" value="true" />
+      <created>1748197220520</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1748197220520</updated>
+    </task>
+    <task id="LOCAL-00007" summary="FEAT: skipping word if no translation">
+      <option name="closed" value="true" />
+      <created>1748197491731</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1748197491731</updated>
+    </task>
+    <task id="LOCAL-00008" summary="using cefrpy">
+      <option name="closed" value="true" />
+      <created>1748197973224</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1748197973224</updated>
+    </task>
+    <task id="LOCAL-00009" summary=" feat: Added separation to sentenses">
+      <option name="closed" value="true" />
+      <created>1748255798517</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1748255798517</updated>
+    </task>
+    <task id="LOCAL-00010" summary=" feat: added translation of sentsnses">
+      <option name="closed" value="true" />
+      <created>1748257128531</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1748257128531</updated>
+    </task>
+    <task id="LOCAL-00011" summary=" feat: added  --not-translate  Disable sentence translation (enabled by default)">
+      <option name="closed" value="true" />
+      <created>1748257802128</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1748257802128</updated>
+    </task>
+    <task id="LOCAL-00012" summary=" feat: added  apkg generation">
+      <option name="closed" value="true" />
+      <created>1748260556887</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1748260556887</updated>
+    </task>
+    <task id="LOCAL-00013" summary=" feat: visible tags">
+      <option name="closed" value="true" />
+      <created>1748263362797</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1748263362797</updated>
+    </task>
+    <task id="LOCAL-00014" summary=" feat: progrese bar">
+      <option name="closed" value="true" />
+      <created>1748264575781</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1748264575781</updated>
+    </task>
+    <task id="LOCAL-00015" summary=" feat: amport txt to known db">
+      <option name="closed" value="true" />
+      <created>1748275166051</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1748275166051</updated>
+    </task>
+    <task id="LOCAL-00016" summary=" feat: added page rages">
+      <option name="closed" value="true" />
+      <created>1748276183422</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1748276183422</updated>
+    </task>
+    <task id="LOCAL-00017" summary=" feat: export pdf not clean font">
+      <option name="closed" value="true" />
+      <created>1748276818951</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1748276818951</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="init -- scripts" />
+    <MESSAGE value="added cli" />
+    <MESSAGE value="added cli 1" />
+    <MESSAGE value="smartanki 1 -- working" />
+    <MESSAGE value="smartanki FEAT lemmatizing, no save to usersword db" />
+    <MESSAGE value="FEAT: skipping word if no translation" />
+    <MESSAGE value="using cefrpy" />
+    <MESSAGE value=" feat: Added separation to sentenses" />
+    <MESSAGE value=" feat: added translation of sentsnses" />
+    <MESSAGE value=" feat: added  --not-translate  Disable sentence translation (enabled by default)" />
+    <MESSAGE value=" feat: added  apkg generation" />
+    <MESSAGE value=" feat: visible tags" />
+    <MESSAGE value=" feat: progrese bar" />
+    <MESSAGE value=" feat: amport txt to known db" />
+    <MESSAGE value=" feat: added page rages" />
+    <MESSAGE value=" feat: export pdf not clean font" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat: export pdf not clean font" />
   </component>
 </project>

@@ -1,11 +1,11 @@
-from cefr_filter import CEFRFilter
-from extractor import extract_new_words
-from anki_export import generate_anki_csv
+from smartanki.cefr_filter import CEFRFilter
+from smartanki.extractor import extract_new_words
+from smartanki.anki_export import generate_anki_csv
 from vocab_db import init_db
 
 # Setup
 init_db()
-cefr = CEFRFilter(csv_path='data/cefr_wordlist.csv', user_level='B2')
+cefr = CEFRFilter(csv_path='../data/cefr_wordlist.csv', user_level='B2')
 
 # Input text
 text = """In an era characterized by rapid technological advancements and unprecedented global
@@ -15,5 +15,5 @@ text = """In an era characterized by rapid technological advancements and unprec
 new_words = extract_new_words(text, cefr, auto_save=True)
 
 # Generate Anki-ready CSV
-generate_anki_csv(new_words, output_file='anki_exports/anki_cards.csv')
+generate_anki_csv(new_words, output_file='../anki_exports/anki_cards.csv')
 print(new_words)

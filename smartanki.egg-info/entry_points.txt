@@ -1,0 +1,2 @@
+[console_scripts]
+smartanki = smartanki.main_cli:main

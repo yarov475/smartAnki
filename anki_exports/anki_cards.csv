@@ -1,35 +1,65 @@
-Word,Phonetic,Definition,Example
-advancements,/advancements/,encouragement of the progress or growth or acceptance of something,
-agility,/agility/,the gracefulness of a person or animal that is quick and nimble,
-challenges,/challenges/,a demanding or stimulating situation,they reacted irrationally to the challenge of Russian power
-characterized,/characterized/,describe or portray the character or the qualities or peculiarities of,You can characterize his behavior as that of an egotist
-cognitive,/cognitive/,of or being or relating to or involving cognition,cognitive psychology
-coupled,/coupled/,"bring two objects, ideas, or people together",This fact is coupled to the other one
-discernment,/discernment/,the cognitive condition of someone who understands,he has virtually no understanding of social cause and effect
-discourse,/discourse/,extended verbal expression in speech or writing,
-elusive,/elusive/,difficult to describe,a haunting elusive odor
-empowering,/empowering/,give or delegate power or authority to,She authorized her assistant to sign the papers
-engenders,/engenders/,call forth,
-epistemic,/epistemic/,of or relating to epistemology,epistemic modal
-ethical,/ethical/,of or relating to the philosophical study of ethics,ethical codes
-fostering,/fostering/,encouragement; aiding the development of something,
-humility,/humility/,a disposition to be humble; a lack of false pride,not everyone regards humility as a virtue
-imperative,/imperative/,a mood that expresses an intention to influence the listener's behavior,
-indispensable,/indispensable/,not to be dispensed with; essential,foods indispensable to good nutrition
-individuals,/individuals/,a human being,there was too much for one person to do
-interconnectedness,/interconnectedness/,a state of being connected reciprocally,an interconnection between the two buildings
-issues,/issues/,an important question that is in dispute and must be settled,the issue could be settled by requiring public education for everyone
-landscape,/landscape/,an expanse of scenery that can be seen in a single view,
-multifaceted,/multifaceted/,having many aspects,a many-sided subject
-nuanced,/nuanced/,,
-ostensibly,/ostensibly/,from appearances alone; ; ; -Thomas Hardy,irrigation often produces bumper crops from apparently desert land
-perspectives,/perspectives/,a way of regarding situations or topics etc.,consider what follows from the positivist view
-profound,/profound/,showing intellectual penetration or emotional depth,the differences are profound
-proliferation,/proliferation/,growth by the rapid multiplication of parts,
-pronounced,/pronounced/,"speak, pronounce, or utter in a certain way",She pronounces French words in a funny way
-rigor,/rigor/,something hard to endure,the asperity of northern winters
-superficial,/superficial/,concerned with or comprehending only what is apparent or obvious; not deep or penetrating emotionally or intellectually,superficial similarities
-synthesize,/synthesize/,"combine so as to form a more complex, product",his operas synthesize music and drama in perfect harmony
-thinking,/thinking/,the process of using your mind to consider something carefully,thinking always made him frown
-ubiquitous,/ubiquitous/,being present everywhere at once,
-unprecedented,/unprecedented/,having no precedent; novel,an unprecedented expansion in population and industry
+Word,Phonetic,Definition,Example,Translation,POS
+pyrenees,/pyrenees/,a chain of mountains between France and Spain,"And that
+really does mean his whole life, as he grew up 2,000 metres above sea level
+in the <b>Pyrenees</b> in the ski resort of Lles de Cerdanya in Catalonia, north-
+eastern Spain.","И это
+Действительно означает всю его жизнь, когда он вырос на 2000 метров над уровнем моря
+В пиренеях в лыжном курорте Ллс де Серданья в Каталонии, север.
+Восточная Испания.",n
+resort,/ɹɨˈzɔ(ɹ)t/,"A place where people go for recreation, especially one with facilities such as lodgings, entertainment, and a relaxing environment.","And that
+really does mean his whole life, as he grew up 2,000 metres above sea level
+in the Pyrenees in the ski <b>resort</b> of Lles de Cerdanya in Catalonia, north-
+eastern Spain.","И это
+Действительно означает всю его жизнь, когда он вырос на 2000 метров над уровнем моря
+В пиренеях в лыжном курорте Ллс де Серданья в Каталонии, север.
+Восточная Испания.",noun
+catalonia,/catalonia/,a region of northeastern Spain,"And that
+really does mean his whole life, as he grew up 2,000 metres above sea level
+in the Pyrenees in the ski resort of Lles de Cerdanya in <b>Catalonia</b>, north-
+eastern Spain.","И это
+Действительно означает всю его жизнь, когда он вырос на 2000 метров над уровнем моря
+В пиренеях в лыжном курорте Ллс де Серданья в Каталонии, север.
+Восточная Испания.",n
+ascent,/əˈsɛnt/,The act of ascending; a motion upwards.,"For his record-breaking <b>ascent</b>
+and descent of the Matterhorn, he prepared by climbing the mountain ten times
+until he knew every detail of it, even including where the sun would be
+shining at every part of the day.","За его рекордное восхождение
+и спуск Маттерхорна, он подготовился, поднимаясь на гору десять раз
+Пока он не узнал каждую деталь, даже включая то, где будет солнце
+Сияет в каждой части дня.",noun
+descent,/dɪˈsɛnt/,An instance of descending; act of coming down.,"For his record-breaking ascent
+and <b>descent</b> of the Matterhorn, he prepared by climbing the mountain ten times
+until he knew every detail of it, even including where the sun would be
+shining at every part of the day.","За его рекордное восхождение
+и <b>спуск</b> Маттерхорна, он подготовился, поднимаясь на гору десять раз
+Пока он не узнал каждую деталь, даже включая то, где будет солнце
+Сияет в каждой части дня.",noun
+matterhorn,/matterhorn/,"a mountain in the Alps on the border between Switzerland and Italy (14,780 feet high); noted for its distinctive shape","For his record-breaking ascent
+and descent of the <b>Matterhorn</b>, he prepared by climbing the mountain ten times
+until he knew every detail of it, even including where the sun would be
+shining at every part of the day.","За его рекордное восхождение
+и спуск Маттерхорна, он подготовился, поднимаясь на гору десять раз
+Пока он не узнал каждую деталь, даже включая то, где будет солнце
+Сияет в каждой части дня.",n
+man,[mɛn],An adult male human.,"His
+resting heartbeat is extremely low at 33 beats per minute, compared with the
+average <b>man</b>'s 60 per minute or an athlete's 40 per minute.","Его
+сердцебиение отдыха чрезвычайно низкое со скоростью 33 ударов в минуту, по сравнению с
+Средний <b>мужчина</b> 60 в минуту или спортсмен 40 в минуту.",noun
+lactic,/ˈlæktɪk/,"Of, relating to, or derived from milk","He breathes more
+efficiently than average people too, taking in more oxygen per breath, and he
+has a much faster recovery time after exercise as his body quickly breaks
+down <b>lactic</b> acid – the acid in muscles that causes pain after exercise.","Он дышит больше
+эффективно, чем средние люди, принимая больше кислорода на дыхание, и он
+Уже гораздо более быстрое время восстановления после упражнений, когда его тело быстро ломается
+Вниз молочная кислота - кислота в мышцах, которая вызывает боль после тренировки.",adjective
+condition,/kənˈdɪʃən/,A logical clause or phrase that a conditional statement uses. The phrase can either be true or false.,"He often sets himself challenges
+to see how long he can endure difficult conditions in order to truly
+understand what his body and mind can cope with.","Он часто сталкивается с проблемами
+Чтобы увидеть, как долго он может терпеть сложные условия, чтобы по -настоящему
+Поймите, с чем могут справиться его тело и разум.",noun
+km,/km/,a metric unit of length equal to 1000 meters (or 0.621371 miles),"For example, he almost gave
+himself kidney failure after only drinking 3.5 litres of water on a 100km run
+in temperatures of around 40°C.","Например, он почти дал
+Сам почечная недостаточность после того, как выпил только 3,5 литра воды на 100 -километровом пробеже
+При температуре около 40 ° C.",n
