@@ -2,6 +2,8 @@ import csv
 import os
 from nltk.corpus import wordnet
 from smartanki.dictionary_api import get_word_data
+from smartanki.translator import translate_to_russian
+
 
 def get_definition_and_example(word):
     synsets = wordnet.synsets(word)
@@ -11,7 +13,10 @@ def get_definition_and_example(word):
     examples = synsets[0].examples()
     example = examples[0] if examples else ""
     return (definition, example)
+
+
 from nltk.corpus import wordnet as wn
+
 
 def get_better_definition(word):
     synsets = wn.synsets(word)
@@ -31,13 +36,15 @@ def get_phonetic_placeholder(word):
     # Placeholder phonetics (IPA data requires external services or CMU dict)
     return f"/{word}/"
 
+
 def generate_anki_csv(word_sentence_map, output_file='anki_exports/anki_cards.csv'):
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     skipped = []
 
     with open(output_file, mode='w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow(["Word", "Phonetic", "Definition", "Example", "POS"])
+        writer.writerow(["Word", "Phonetic", "Definition", "Example", "Translation", "POS"])
+
 
         for word, sentence in word_sentence_map.items():
             word_info = get_word_data(word)
@@ -54,12 +61,14 @@ def generate_anki_csv(word_sentence_map, output_file='anki_exports/anki_cards.cs
 
             # Use the real-sentence context instead of the API example
             example = sentence or word_info["example"]
+            translation = translate_to_russian(example)
 
             writer.writerow([
                 word_info["word"],
                 word_info["phonetic"],
                 word_info["definition"],
                 example,
+                translation,
                 word_info["part_of_speech"]
             ])
 
