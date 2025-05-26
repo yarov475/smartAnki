@@ -54,7 +54,7 @@ def generate_anki_csv(word_sentence_map, output_file='anki_exports/anki_cards.cs
         for word, sentence in word_sentence_map.items():
             word_info = get_word_data(word)
             if not word_info or not word_info["definition"].strip():
-                print(f"⚠️ Skipping '{word}' – no dictionary data.")
+                # print(f"⚠️ Skipping '{word}' – no dictionary data.")
                 skipped.append(word)
                 continue
 

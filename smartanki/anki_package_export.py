@@ -5,20 +5,23 @@ import os
 from smartanki.dictionary_api import get_word_data
 from smartanki.translator import translate_to_russian
 from smartanki.anki_export import highlight_word
+from tqdm import tqdm
+
 
 def generate_anki_package(
-    word_sentence_map,
-    cefr_filter,
-    output_path="anki_exports/smartanki.apkg",
-    translate=True,
-    custom_tags=None
+        word_sentence_map,
+        cefr_filter,
+        output_path="anki_exports/smartanki.apkg",
+        translate=True,
+        custom_tags=None,
+        deck_name="SmartAnki Vocabulary Deck"
 ):
     if custom_tags is None:
         custom_tags = []
 
     model = genanki.Model(
         model_id=1607392319,
-        name='SmartAnkiModel',
+        name=deck_name,
         fields=[
             {"name": "Word"},
             {"name": "Phonetic"},
@@ -52,7 +55,7 @@ def generate_anki_package(
 
     skipped = []
 
-    for word, sentence in word_sentence_map.items():
+    for word, sentence in tqdm(word_sentence_map.items(), desc="📦 Creating Anki notes", unit="word"):
         word_info = get_word_data(word)
         if not word_info or not word_info["definition"].strip():
             skipped.append(word)

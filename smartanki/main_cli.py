@@ -1,19 +1,14 @@
-# main_cli.py
+# smartanki/main_cli.py
 
 import argparse
-
-from smartanki import cefr_filter
+import warnings
+from tqdm import tqdm
 from smartanki.vocab_db import init_db
+from smartanki.cefr_filter import CEFRFilter
 from smartanki.extractor import extract_new_words
 from smartanki.anki_export import generate_anki_csv
-from smartanki.pdf_reader import read_pdf_text
 from smartanki.anki_package_export import generate_anki_package
-from smartanki.cefr_filter import CEFRFilter
-
-
-
-import warnings
-
+from smartanki.pdf_reader import read_pdf_text
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -26,87 +21,76 @@ def read_input_text(path):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="📘 SmartAnki CLI – CEFR Vocabulary Extractor")
+    parser = argparse.ArgumentParser(description="📘 SmartAnki CLI – CEFR Vocabulary Extractor + Anki Deck Generator")
     parser.add_argument("filepath", help="Path to input file (.pdf or .txt)")
     parser.add_argument("--cefr", default="B2", help="User CEFR level (default: B2)")
-    parser.add_argument("--csv", default="anki_exports/anki_cards.csv", help="Output CSV path")
-    parser.add_argument(
-        "--no-save",
-        action="store_true",
-        help="Don't store extracted words in the known words database"
-    )
-    parser.add_argument(
-        "--no-lemmatize",
-        action="store_true",
-        help="Disable lemmatization (by default, words are lemmatized)"
-    )
-    parser.add_argument(
-        "--debug-cefr",
-        action="store_true",
-        help="Print source of CEFR level for each word"
-    )
-    parser.add_argument(
-        "--not-translate",
-        action="store_true",
-        help="Disable sentence translation (enabled by default)"
-    )
-    parser.add_argument(
-        "--export-apkg",
-        action="store_true",
-        help="Export Anki .apkg deck (instead of just CSV)"
-    )
-    parser.add_argument(
-        "--tags",
-        nargs="*",
-        default=[],
-        help="Custom tags to add to every Anki card (space-separated, e.g. --tags cefr::B2 topic::science)"
-    )
+    parser.add_argument("--csv", default="anki_exports/anki_cards.csv", help="CSV output path")
+    parser.add_argument("--no-save", action="store_true", help="Don't save new words to database")
+    parser.add_argument("--not-translate", action="store_true", help="Disable sentence translation")
+    parser.add_argument("--no-lemmatize", action="store_true", help="Disable lemmatization")
+    parser.add_argument("--export-apkg", action="store_true", help="Export as native Anki .apkg file")
+    parser.add_argument("--tags", nargs="*", default=[], help="Custom tags for each card (space-separated)")
+    parser.add_argument("--deck-name", default="SmartAnki Vocabulary Deck", help="Name of the Anki deck")
+    parser.add_argument("--debug-cefr", action="store_true", help="Print CEFR debug info")
 
     args = parser.parse_args()
 
-    # Step 1: Init
+    # STEP 1: Init DB + Filters
     print("🔧 Initializing database and filters...")
-    init_db()
-    cefr = CEFRFilter("data/cefr_wordlist.csv", args.cefr.upper())
+    with tqdm(total=3, desc="🔧 Setup", unit="step") as pbar:
+        init_db()
+        pbar.update(1)
 
-
-    # Step 2: Load text
-    print(f"📖 Reading from {args.filepath}...")
-    text = read_input_text(args.filepath)
-
-    # Step 3: Extract words
-    print("🧠 Extracting new words...")
-    word_sentence_map = extract_new_words(
-        text,
-        cefr,
-        auto_save=not args.no_save,
-        lemmatize=not args.no_lemmatize,
-        debug_cefr=args.debug_cefr
-    )
-
-    word_count = len(word_sentence_map)
-    print(f"✅ {word_count} new words found and added to database.")
-
-    # Step 4: Export Anki CSV
-    print(f"💾 Exporting Anki cards to {args.csv}...")
-    generate_anki_csv(
-        word_sentence_map,
-        args.csv,
-        translate=not args.not_translate
-    )
-    if args.export_apkg:
         cefr = CEFRFilter("data/cefr_wordlist.csv", args.cefr.upper())
+        pbar.update(1)
+
+        pbar.update(1)  # Placeholder for any setup steps
+    print("✅ Setup complete.\n")
+
+    # STEP 2: Read File
+    print(f"📖 Reading from {args.filepath}...")
+    text = ""
+    with tqdm(total=1, desc="📖 Reading file", unit="file") as pbar:
+        text = read_input_text(args.filepath)
+        pbar.update(1)
+    print("✅ File loaded.\n")
+
+    # STEP 3: Extract Words
+    print("🧠 Extracting new words...")
+    word_sentence_map = {}
+    with tqdm(total=1, desc="🧠 Analyzing text", unit="task") as pbar:
+        word_sentence_map = extract_new_words(
+            text,
+            cefr_filter=cefr,
+            auto_save=not args.no_save,
+            lemmatize=not args.no_lemmatize,
+            debug_cefr=args.debug_cefr
+        )
+        pbar.update(1)
+
+    print(f"✅ {len(word_sentence_map)} new words found and added to database.\n")
+
+    # STEP 4: Export
+    if args.export_apkg:
+        print(f"📦 Generating Anki deck: {args.deck_name}")
         generate_anki_package(
             word_sentence_map,
-            cefr,
-            output_path="anki_exports/smartanki.apkg",
+            cefr_filter=cefr,
+            output_path=f"anki_exports/{args.deck_name.replace(' ', '_')}.apkg",
             translate=not args.not_translate,
-            custom_tags=args.tags
+            custom_tags=args.tags,
+            deck_name=args.deck_name
         )
-        print("🎉 Done! You can now anki package  into Anki.")
     else:
-        generate_anki_csv(word_sentence_map, args.csv, translate=not args.not_translate, custom_tags=args.tags)
-        print("🎉 Done! You can now import the CSV into Anki.")
+        print(f"💾 Exporting Anki cards to {args.csv}...")
+        generate_anki_csv(
+            word_sentence_map,
+            output_file=args.csv,
+            translate=not args.not_translate
+        )
 
-    if __name__ == "__main__":
-        main()
+    print("🎉 Done! You can now import your Anki deck.")
+
+
+if __name__ == "__main__":
+    main()
