@@ -1,17 +1,26 @@
 # smartanki/pdf_export.py
 
+import os
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.units import cm
 from smartanki.dictionary_api import get_word_data
-from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase.ttfonts import TTFont, TTFError
 from reportlab.pdfbase import pdfmetrics
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.enums import TA_LEFT
 
 # Register custom font
-pdfmetrics.registerFont(TTFont("DejaVu", "smartanki/fonts/DejaVuSans.ttf"))
+font_path = os.path.abspath("/smartanki/fonts/DejaVuSans.ttf")
+
+try:
+    pdfmetrics.registerFont(TTFont("DejaVuSans", font_path))
+except FileNotFoundError:
+    print(f"[⚠] Font not found at {font_path}")
+except TTFError as e:
+    print(f"[⚠] Font loading failed: {e}")
+
 
 custom_style = ParagraphStyle(
     "Custom",

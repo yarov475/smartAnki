@@ -1,56 +1,45 @@
 # smartanki/translator.py
-import argostranslate.package
-
-argostranslate.package.install_from_path("smartanki/agrosmodel/en_ru.argosmodel")
+from transformers import MarianMTModel, MarianTokenizer
 from typing import Optional
 from googletrans import Translator as GoogleTranslator
 
-# Try to load Argos Translate
-try:
-    from argostranslate import package, translate as argos_translate
-    argos_languages = argos_translate.load_installed_languages()
-    en = next((lang for lang in argos_languages if lang.code == "en"), None)
-    ru = next((lang for lang in argos_languages if lang.code == "ru"), None)
-    _local_translator = en.get_translation(ru) if en and ru else None
-except Exception as e:
-    print(f"[⚠] Argos Translate init failed: {e}")
-    _local_translator = None
+class HuggingFaceTranslator:
+    def __init__(self, model_name: str):
+        self.tokenizer = MarianTokenizer.from_pretrained(model_name)
+        self.model = MarianMTModel.from_pretrained(model_name)
 
+    def translate(self, text: str) -> str:
+        inputs = self.tokenizer(text, return_tensors="pt", padding=True)
+        translated_tokens = self.model.generate(**inputs)
+        translated_text = self.tokenizer.decode(translated_tokens[0], skip_special_tokens=True)
+        return translated_text
+
+# Initialize Hugging Face translator for English → Russian
+_hf_model_name = "Helsinki-NLP/opus-mt-en-ru"
+try:
+    _hf_translator = HuggingFaceTranslator(_hf_model_name)
+except Exception as e:
+    print(f"[⚠] Hugging Face model init failed: {e}")
+    _hf_translator = None
+
+# Initialize Google Translate as fallback
 _google_translator = GoogleTranslator()
 
-
-def translate_to_russian(text: str, force_google=False, offline_only=False) -> str:
+def translate_to_russian(text: str, use_local: bool = True) -> Optional[str]:
     """
-    Translate English text to Russian using Argos Translate (offline),
-    with optional fallback to Google Translate (online).
+    Translate English text to Russian.
+    If use_local=True and Hugging Face model loaded successfully, use it.
+    Otherwise, fallback to Google Translate.
     """
-    if offline_only:
-        if _local_translator:
-            try:
-                return _local_translator.translate(text)
-            except Exception as e:
-                print(f"[❌ Argos failed] {e}")
-        return "[translation unavailable (offline only)]"
-
-    if force_google:
-        return _translate_with_google(text)
-
-    # Try Argos first
-    if _local_translator:
+    if use_local and _hf_translator:
         try:
-            result = _local_translator.translate(text)
-            if result.strip():
-                return result
+            return _hf_translator.translate(text)
         except Exception as e:
-            print(f"[Argos failed] {e}")
-
-    # Fall back to Google Translate
-    return _translate_with_google(text)
-
-
-def _translate_with_google(text: str) -> str:
+            print(f"[⚠] Local translation failed: {e}")
+    # fallback
     try:
-        return _google_translator.translate(text, src="en", dest="ru").text
+        result = _google_translator.translate(text, src="en", dest="ru")
+        return result.text
     except Exception as e:
-        print(f"[Google Translate failed] {e}")
-        return "[translation unavailable]"
+        print(f"[⚠] Google Translate failed: {e}")
+        return None

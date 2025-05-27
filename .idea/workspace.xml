@@ -4,29 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: export pdf  clean font">
-      <change afterPath="$PROJECT_DIR$/smartanki/agrosmodel/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartanki/agrosmodel/en_ru.argosmodel" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat added : ofline translater en_ru.argosmodel">
+      <change afterPath="$PROJECT_DIR$/smartanki/test_runner.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/Sample.apkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/Sample2.apkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/Sample_3.apkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/Sample_4.apkg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/anki_exports/anki_cards.csv" beforeDir="false" afterPath="$PROJECT_DIR$/anki_exports/anki_cards.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/dune_c1.apkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/examples-translated-debug_5_google.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/examples-translated-debug_6_google-hignlitr-2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/examples-translated-debug_6_google-hignlitr-3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/examples-translated-debug_6_google-hignlitr.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/examples-translated-debug_not-translate_google.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/smartanki.apkg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db/user_words.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/anki_package_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_package_export.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/dictionary_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/dictionary_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/pdf_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/pdf_export.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/translator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="CLI" />
+        <entry key="$PROJECT_DIR$" value="CLI-translaters-argostranslate-and-googletranslate" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,7 +54,7 @@
     "Python.vocab_db.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "CLI-translaters-argostranslate-and-googletranslate",
+    "git-widget-placeholder": "CLI-translaters-Helsinki-NLP/opus-mt-en-ru-and-googletranslate",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "E:/Python apps/smartAnki/smartanki"
   }
@@ -266,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748277376236</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary=" feat added : ofline translater en_ru.argosmodel">
+      <option name="closed" value="true" />
+      <created>1748342450910</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1748342450910</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -288,6 +282,7 @@
     <MESSAGE value=" feat: added page rages" />
     <MESSAGE value=" feat: export pdf not clean font" />
     <MESSAGE value=" feat: export pdf  clean font" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat: export pdf  clean font" />
+    <MESSAGE value=" feat added : ofline translater en_ru.argosmodel" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat added : ofline translater en_ru.argosmodel" />
   </component>
 </project>

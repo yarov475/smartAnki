@@ -107,7 +107,7 @@ def main():
         init_db()
         pbar.update(1)
 
-        cefr = CEFRFilter("data/cefr_wordlist.csv", args.cefr.upper())
+        cefr = CEFRFilter("../data/cefr_wordlist.csv", args.cefr.upper())
         pbar.update(1)
 
         pbar.update(1)  # Placeholder for any setup steps
