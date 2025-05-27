@@ -1,5 +1,3 @@
-# smartanki/pdf_export.py
-
 import os
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
@@ -26,13 +24,13 @@ except TTFError as e:
 
 custom_style = ParagraphStyle(
     "Custom",
-    fontName="DejaVu",
+    fontName="DejaVuSans",
     fontSize=10.5,
     leading=14,
     alignment=TA_LEFT,
 )
 
-def export_wordlist_to_pdf(word_sentence_map, output_path="anki_exports/wordlist.pdf"):
+def export_wordlist_to_pdf(word_sentence_map, output_path="/smartAnki/anki_exports/anki_wordlist.pdf"):
     doc = SimpleDocTemplate(output_path, pagesize=A4, title="SmartAnki Word List")
     styles = getSampleStyleSheet()
     elements = []
