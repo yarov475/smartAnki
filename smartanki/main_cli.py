@@ -1,6 +1,7 @@
 # smartanki/main_cli.py
 
 import argparse
+import os # Import os module
 import warnings
 from tqdm import tqdm
 from smartanki.vocab_db import init_db
@@ -44,10 +45,20 @@ def read_input_text(path, page_range=None):
 
 
 def main():
+    # Determine project base directory and default anki_exports path
+    current_script_path = os.path.abspath(__file__) 
+    # main_cli.py -> smartanki (package) -> project_base
+    package_dir = os.path.dirname(current_script_path)
+    project_base_dir = os.path.dirname(package_dir)
+    default_anki_exports_dir = os.path.join(project_base_dir, "anki_exports")
+    
+    # Create the default anki_exports directory if it doesn't exist
+    os.makedirs(default_anki_exports_dir, exist_ok=True)
+
     parser = argparse.ArgumentParser(description="📘 SmartAnki CLI – CEFR Vocabulary Extractor + Anki Deck Generator")
     parser.add_argument("filepath", nargs="?", help="Path to input file (.pdf or .txt)")
     parser.add_argument("--cefr", default="B2", help="User CEFR level (default: B2)")
-    parser.add_argument("--csv", default="anki_exports/anki_cards.csv", help="CSV output path")
+    parser.add_argument("--csv", default=os.path.join("anki_exports", "anki_cards.csv"), help="CSV output path")
     parser.add_argument("--no-save", action="store_true", help="Don't save new words to database")
     parser.add_argument("--not-translate", action="store_true", help="Disable sentence translation")
     parser.add_argument("--no-lemmatize", action="store_true", help="Disable lemmatization")
@@ -86,6 +97,14 @@ def main():
     )
 
     args = parser.parse_args()
+
+    # Adjust output paths to use the default_anki_exports_dir if paths are relative
+    if args.csv and not os.path.isabs(args.csv):
+        args.csv = os.path.join(default_anki_exports_dir, os.path.basename(args.csv))
+    
+    if args.pdf_output and not os.path.isabs(args.pdf_output):
+        args.pdf_output = os.path.join(default_anki_exports_dir, os.path.basename(args.pdf_output))
+
     if args.import_anki_csv:
         print(f"📥 Importing known words from: {args.import_anki_csv}")
         import_known_words_from_anki(args.import_anki_csv)
@@ -154,7 +173,7 @@ def main():
         generate_anki_package(
             word_sentence_map,
             cefr_filter=cefr,
-            output_path=f"anki_exports/{args.deck_name.replace(' ', '_')}.apkg",
+            output_path=os.path.join(default_anki_exports_dir, f"{args.deck_name.replace(' ', '_')}.apkg"),
             translate=not args.not_translate,
             custom_tags=args.tags,
             deck_name=args.deck_name,
