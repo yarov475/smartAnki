@@ -1,10 +1,11 @@
 import spacy
-from smartanki.vocab_db import is_known, add_known_words
+from smartanki.vocab_db import add_known_words, list_known_words
 
 nlp = spacy.load("en_core_web_sm")
 nlp.max_length = 2_000_000
 
 def extract_new_words(text: str, cefr_filter, auto_save=True, lemmatize=True, debug_cefr=False):
+    known_words_set = set(list_known_words())
     doc = nlp(text)
     new_word_entries = {}  # word → example sentence
 
@@ -15,7 +16,7 @@ def extract_new_words(text: str, cefr_filter, auto_save=True, lemmatize=True, de
 
             word = token.lemma_.lower() if lemmatize else token.text.lower()
 
-            if is_known(word):
+            if word in known_words_set:
                 continue
 
             if not cefr_filter.is_above_user_level(word, debug=debug_cefr):
