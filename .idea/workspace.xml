@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat added : Helsinki-NLP/opus-mt-en-ru works">
-      <change afterPath="$PROJECT_DIR$/smartanki/anki_exports/anki_cards.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartanki/anki_exports/test2.apkg" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment="BUG_FICXED: export pdf">
+      <change afterPath="$PROJECT_DIR$/smartanki/sample.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/sample2.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/pdf_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/pdf_export.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="CLI-translaters-argostranslate-and-googletranslate" />
+        <entry key="$PROJECT_DIR$" value="CLI-translaters-Helsinki-NLP/opus-mt-en-ru-and-googletranslate" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,7 +49,7 @@
     "Python.vocab_db.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "CLI-translaters-Helsinki-NLP/opus-mt-en-ru-and-googletranslate",
+    "git-widget-placeholder": "CLI-jules-commit",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "E:/Python apps/smartAnki/smartanki"
   }
@@ -272,7 +271,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748348795210</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="BUG_FICXED: export pdf">
+      <option name="closed" value="true" />
+      <created>1748350937497</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1748350937497</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -297,6 +304,7 @@
     <MESSAGE value=" feat added : ofline translater en_ru.argosmodel" />
     <MESSAGE value=" feat added : Helsinki-NLP/opus-mt-en-ru ofline translater BUG: issue with pathes" />
     <MESSAGE value=" feat added : Helsinki-NLP/opus-mt-en-ru works" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat added : Helsinki-NLP/opus-mt-en-ru works" />
+    <MESSAGE value="BUG_FICXED: export pdf" />
+    <option name="LAST_COMMIT_MESSAGE" value="BUG_FICXED: export pdf" />
   </component>
 </project>
