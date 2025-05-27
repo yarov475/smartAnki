@@ -55,24 +55,11 @@ def main():
     parser.add_argument("--tags", nargs="*", default=[], help="Custom tags for each card (space-separated)")
     parser.add_argument("--deck-name", default="SmartAnki Vocabulary Deck", help="Name of the Anki deck")
     parser.add_argument("--debug-cefr", action="store_true", help="Print CEFR debug info")
-    parser.add_argument(
-        "--import-anki-csv",
-        help="Import known words from a raw Anki-exported CSV (any format)"
-    )
-    parser.add_argument(
-        "--pdf-pages",
-        help="Page range to extract from PDF (e.g. 2-5). First page is 1."
-    )
-
-    parser.add_argument(
-        "--only-import-anki",
-        action="store_true",
-        help="Only import Anki CSV and exit (no extraction or export)"
-    )
-    parser.add_argument(
-        "--pdf-output",
-        help="Optional: path to save the extracted words as a PDF word list"
-    )
+    parser.add_argument("--import-anki-csv", help="Import known words from a raw Anki-exported CSV (any format)")
+    parser.add_argument("--pdf-pages", help="Page range to extract from PDF (e.g. 2-5). First page is 1.")
+    parser.add_argument("--only-import-anki", action="store_true",
+                        help="Only import Anki CSV and exit (no extraction or export)")
+    parser.add_argument("--pdf-output", help="Optional: path to save the extracted words as a PDF word list")
     parser.add_argument(
         "--offline-translate",
         action="store_true",

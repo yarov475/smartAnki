@@ -12,7 +12,9 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.enums import TA_LEFT
 
 # Register custom font
-font_path = os.path.abspath("/smartanki/fonts/DejaVuSans.ttf")
+# Construct path relative to this script's location
+script_dir = os.path.dirname(os.path.abspath(__file__))
+font_path = os.path.join(script_dir, "fonts", "DejaVuSans.ttf")
 
 try:
     pdfmetrics.registerFont(TTFont("DejaVuSans", font_path))
