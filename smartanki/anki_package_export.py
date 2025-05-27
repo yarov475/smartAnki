@@ -7,14 +7,15 @@ from smartanki.translator import translate_to_russian
 from smartanki.anki_export import highlight_word
 
 
-
 def generate_anki_package(
         word_sentence_map,
         cefr_filter,
         output_path="anki_exports/smartanki.apkg",
         translate=True,
         custom_tags=None,
-        deck_name="SmartAnki Vocabulary Deck"
+        deck_name="SmartAnki Vocabulary Deck",
+        offline_translate=False,
+        force_google=False
 ):
     if custom_tags is None:
         custom_tags = []
@@ -65,14 +66,11 @@ def generate_anki_package(
         highlighted_example = highlight_word(sentence, word)
 
         # Translate and highlight the word in translation
-        translation = ""
-        if translate:
-            translated_sentence = translate_to_russian(sentence)
-            translated_word = translate_to_russian(word)
-            if translated_word in translated_sentence:
-                translation = highlight_word(translated_sentence, translated_word)
-            else:
-                translation = translated_sentence
+        translation = translate_to_russian(
+            sentence,
+            offline_only=offline_translate,
+            force_google=force_google
+        )
 
         # 🔍 Get CEFR level and source for tagging
         level, source = cefr_filter.get_cefr_level(word, debug=False)

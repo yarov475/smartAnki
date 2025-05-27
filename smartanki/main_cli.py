@@ -73,6 +73,17 @@ def main():
         "--pdf-output",
         help="Optional: path to save the extracted words as a PDF word list"
     )
+    parser.add_argument(
+        "--offline-translate",
+        action="store_true",
+        help="Only use Argos Translate (offline). No internet fallback."
+    )
+
+    parser.add_argument(
+        "--force-google",
+        action="store_true",
+        help="Force use of Google Translate (ignore Argos)."
+    )
 
     args = parser.parse_args()
     if args.import_anki_csv:
@@ -146,8 +157,11 @@ def main():
             output_path=f"anki_exports/{args.deck_name.replace(' ', '_')}.apkg",
             translate=not args.not_translate,
             custom_tags=args.tags,
-            deck_name=args.deck_name
+            deck_name=args.deck_name,
+            offline_translate=args.offline_translate,  # 👈 new
+            force_google=args.force_google  # 👈 new
         )
+
     else:
         print(f"💾 Exporting Anki cards to {args.csv}...")
         generate_anki_csv(

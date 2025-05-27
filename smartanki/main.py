@@ -23,11 +23,13 @@ print(get_word_data("xyzzy"))  # Likely not in API, will use WordNet
 print(get_word_data("write"))  # Likely will use API
 
 #  TODO
-#
-#
-# 5 different output anki list
-# 6 add media
-
+#  add media image generater
+# handle translation  https://huggingface.co/Helsinki-NLP/opus-mt-ru-en
 # 8 work with html pnj jpeg
 # 9 fewquensy lists and ordering
-
+# change prints to logs to log filecmp
+# backflow to google translate if mot api and wordnet
+# cashing
+# db CRAD
+#pro testing  Would you like a proper pytest test with assertions next?
+# You're now test-driving SmartAnki like a pro — smart, safe, scalable! 🧠📘✅
