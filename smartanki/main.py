@@ -6,7 +6,7 @@ from smartanki.dictionary_api import get_word_data
 
 # Setup
 init_db()
-cefr = CEFRFilter(csv_path='../data/cefr_wordlist.csv', user_level='B2')
+cefr = CEFRFilter(csv_path='./data/cefr_wordlist.csv', user_level='B2')
 
 # Input text
 text = """In an era characterized by rapid technological advancements and unprecedented global
@@ -24,7 +24,7 @@ print(get_word_data("write"))  # Likely will use API
 
 #  TODO
 #  add media image generater
-# handle translation  https://huggingface.co/Helsinki-NLP/opus-mt-ru-en
+
 # 8 work with html pnj jpeg
 # 9 fewquensy lists and ordering
 # change prints to logs to log filecmp
