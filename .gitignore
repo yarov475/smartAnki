@@ -1,3 +1,2 @@
 .env
-/input
-/output
+.gitignore
