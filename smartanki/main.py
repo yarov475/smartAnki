@@ -6,7 +6,7 @@ from smartanki.dictionary_api import get_word_data
 
 # Setup
 init_db()
-cefr = CEFRFilter(csv_path='../data/cefr_wordlist.csv', user_level='B2')
+cefr = CEFRFilter(csv_path='./data/cefr_wordlist.csv', user_level='B2')
 
 # Input text
 text = """In an era characterized by rapid technological advancements and unprecedented global
@@ -23,11 +23,13 @@ print(get_word_data("xyzzy"))  # Likely not in API, will use WordNet
 print(get_word_data("write"))  # Likely will use API
 
 #  TODO
-#
-#
-# 5 different output anki list
-# 6 add media
+#  add media image generater
 
 # 8 work with html pnj jpeg
 # 9 fewquensy lists and ordering
-
+# change prints to logs to log filecmp
+# backflow to google translate if mot api and wordnet
+# cashing
+# db CRAD
+#pro testing  Would you like a proper pytest test with assertions next?
+# You're now test-driving SmartAnki like a pro — smart, safe, scalable! 🧠📘✅

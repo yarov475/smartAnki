@@ -5,7 +5,8 @@ import os
 from smartanki.dictionary_api import get_word_data
 from smartanki.translator import translate_to_russian
 from smartanki.anki_export import highlight_word
-
+from smartanki.image_fetcher import fetch_image_url
+import requests
 
 
 def generate_anki_package(
@@ -14,8 +15,12 @@ def generate_anki_package(
         output_path="anki_exports/smartanki.apkg",
         translate=True,
         custom_tags=None,
-        deck_name="SmartAnki Vocabulary Deck"
+        deck_name="SmartAnki Vocabulary Deck",
+        offline_translate=False,
+        force_google=False,
+        with_images=False
 ):
+    media_files = []
     if custom_tags is None:
         custom_tags = []
 
@@ -30,22 +35,29 @@ def generate_anki_package(
             {"name": "Translation"},
             {"name": "POS"},
             {"name": "Tags"},
+            {"name": "Image"}
         ],
         templates=[
             {
                 "name": "SmartAnki Card",
-                "qfmt": "<div style='font-size:20px'><b>{{Word}}</b> <i>{{Phonetic}}</i></div>",
+                "qfmt": """
+        <div style='font-size:20px'>
+          <b>{{Word}}</b> <i>{{Phonetic}}</i>
+        </div>
+        {{Image}}
+        """,
                 "afmt": """
-{{FrontSide}}
-<hr>
-<div style='font-size:18px'><b>Definition:</b><br>{{Definition}}</div><br>
-<div style='color:blue'><b>Example:</b><br>{{Example}}</div><br>
-<div style='color:green'><b>Translation:</b><br>{{Translation}}</div><br>
-<div style='font-style:italic'><b>Part of speech:</b> {{POS}}</div>
-<div style='font-style:italic'><b>Part of speech:</b> {{Tags}}</div>
-""",
+        {{FrontSide}}
+        <hr>
+        <div style='font-size:18px'><b>Definition:</b><br>{{Definition}}</div><br>
+        <div style='color:blue'><b>Example:</b><br>{{Example}}</div><br>
+        <div style='color:green'><b>Translation:</b><br>{{Translation}}</div><br>
+        <div style='font-style:italic'><b>Part of speech:</b> {{POS}}</div><br>
+        <div style='font-style:italic'><b>Tags:</b> {{Tags}}</div>
+        """
             }
         ]
+
     )
 
     deck = genanki.Deck(
@@ -65,14 +77,11 @@ def generate_anki_package(
         highlighted_example = highlight_word(sentence, word)
 
         # Translate and highlight the word in translation
-        translation = ""
-        if translate:
-            translated_sentence = translate_to_russian(sentence)
-            translated_word = translate_to_russian(word)
-            if translated_word in translated_sentence:
-                translation = highlight_word(translated_sentence, translated_word)
-            else:
-                translation = translated_sentence
+        translation = translate_to_russian(
+            sentence,
+            offline_only=offline_translate,
+            force_google=force_google
+        )
 
         # 🔍 Get CEFR level and source for tagging
         level, source = cefr_filter.get_cefr_level(word, debug=False)
@@ -84,6 +93,22 @@ def generate_anki_package(
             tags.append(f"source::{source}")
 
         visible_tags = ", ".join(tags)
+        image_html = ""
+        if with_images:
+            image_url = fetch_image_url(word)
+            if image_url:
+                image_filename = f"{word}.jpg"
+                image_path = os.path.join("anki_exports", image_filename)
+
+                try:
+                    img_data = requests.get(image_url).content
+                    with open(image_path, "wb") as f:
+                        f.write(img_data)
+                    media_files.append(image_path)
+                    image_html = f"<img src='{os.path.basename(image_path)}' style='max-height:200px;'>"
+
+                except Exception as e:
+                    print(f"⚠️ Could not download image for {word}: {e}")
         note = genanki.Note(
             model=model,
             fields=[
@@ -93,7 +118,8 @@ def generate_anki_package(
                 highlighted_example,
                 translation,
                 word_info["part_of_speech"],
-                visible_tags
+                visible_tags,
+                image_html,
             ],
             tags=tags
         )
@@ -101,5 +127,5 @@ def generate_anki_package(
         deck.add_note(note)
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    genanki.Package(deck).write_to_file(output_path)
+    genanki.Package(deck, media_files).write_to_file(output_path)
     print(f"📦 Anki deck exported to {output_path}")

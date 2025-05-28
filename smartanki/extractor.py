@@ -27,4 +27,4 @@ def extract_new_words(text: str, cefr_filter, auto_save=True, lemmatize=True, de
     if auto_save and new_word_entries:
         add_known_words(list(new_word_entries.keys()))
 
-    return new_word_entries  # 🔁 Now returns dict {word: sentence}
+    return new_word_entries  #  Now returns dict {word: sentence}

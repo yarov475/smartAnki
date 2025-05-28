@@ -9,7 +9,7 @@ def get_word_data(word: str):
     try:
         response = requests.get(url, timeout=10)
         if response.status_code != 200:
-            print(f"⚠️ API miss for '{word}', falling back to WordNet.")
+            # print(f"⚠️ API miss for '{word}', falling back to WordNet.")
             return get_wordnet_data(word)
 
         data = response.json()
@@ -31,6 +31,6 @@ def get_word_data(word: str):
         return result
 
     except Exception as e:
-        with open("logs/api_fallbacks.log", "a") as log:
-            log.write(f"Timeout for '{word}' – used WordNet\n")
+        # with open("logs/api_fallbacks.log", "a") as log:
+        #     log.write(f"Timeout for '{word}' – used WordNet\n")
         return get_wordnet_data(word)

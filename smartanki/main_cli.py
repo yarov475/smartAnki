@@ -12,7 +12,6 @@ from smartanki.pdf_reader import read_pdf_text
 from smartanki.anki_import import import_known_words_from_anki
 from smartanki.pdf_reader import read_pdf_text
 from smartanki.pdf_export import export_wordlist_to_pdf
-
 warnings.filterwarnings("ignore", category=UserWarning)
 
 
@@ -55,23 +54,22 @@ def main():
     parser.add_argument("--tags", nargs="*", default=[], help="Custom tags for each card (space-separated)")
     parser.add_argument("--deck-name", default="SmartAnki Vocabulary Deck", help="Name of the Anki deck")
     parser.add_argument("--debug-cefr", action="store_true", help="Print CEFR debug info")
-    parser.add_argument(
-        "--import-anki-csv",
-        help="Import known words from a raw Anki-exported CSV (any format)"
+    parser.add_argument("--import-anki-csv", help="Import known words from a raw Anki-exported CSV (any format)")
+    parser.add_argument("--pdf-pages", help="Page range to extract from PDF (e.g. 2-5). First page is 1.")
+    parser.add_argument("--only-import-anki", action="store_true",help="Only import Anki CSV and exit (no extraction or export)")
+    parser.add_argument("--pdf-output", help="Optional: path to save the extracted words as a PDF word list")
+    parser.add_argument("--offline-translate",action="store_true",help=" only use Helsinki-NLP/opus-mt-en-ru model to translatr "
     )
     parser.add_argument(
-        "--pdf-pages",
-        help="Page range to extract from PDF (e.g. 2-5). First page is 1."
+        "--with-images",
+        action="store_true",
+        help="Include Unsplash images in Anki cards"
     )
 
     parser.add_argument(
-        "--only-import-anki",
+        "--force-google",
         action="store_true",
-        help="Only import Anki CSV and exit (no extraction or export)"
-    )
-    parser.add_argument(
-        "--pdf-output",
-        help="Optional: path to save the extracted words as a PDF word list"
+        help="Force use of Google Translate (ignore Argos)."
     )
 
     args = parser.parse_args()
@@ -95,10 +93,8 @@ def main():
     with tqdm(total=3, desc="🔧 Setup", unit="step") as pbar:
         init_db()
         pbar.update(1)
-
-        cefr = CEFRFilter("data/cefr_wordlist.csv", args.cefr.upper())
+        cefr = CEFRFilter("./data/cefr_wordlist.csv", args.cefr.upper())
         pbar.update(1)
-
         pbar.update(1)  # Placeholder for any setup steps
     print("✅ Setup complete.\n")
 
@@ -146,8 +142,12 @@ def main():
             output_path=f"anki_exports/{args.deck_name.replace(' ', '_')}.apkg",
             translate=not args.not_translate,
             custom_tags=args.tags,
-            deck_name=args.deck_name
+            deck_name=args.deck_name,
+            offline_translate=args.offline_translate,
+            force_google=args.force_google,
+            with_images=args.with_images
         )
+
     else:
         print(f"💾 Exporting Anki cards to {args.csv}...")
         generate_anki_csv(
