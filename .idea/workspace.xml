@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat added : installed nitrosocke/Arcane-Diffusion">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartanki/magical_princess.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat added : installed nitrosocke/Arcane-Diffusion gnore" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -289,7 +285,31 @@
       <option name="project" value="LOCAL" />
       <updated>1748448283220</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary=" feat added : installed nitrosocke/Arcane-Diffusion">
+      <option name="closed" value="true" />
+      <created>1748448456478</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1748448456478</updated>
+    </task>
+    <task id="LOCAL-00025" summary=" feat added : installed nitrosocke/Arcane-Diffusion gnore">
+      <option name="closed" value="true" />
+      <created>1748448545162</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1748448545162</updated>
+    </task>
+    <task id="LOCAL-00026" summary=" feat added : installed nitrosocke/Arcane-Diffusion gnore">
+      <option name="closed" value="true" />
+      <created>1748448705454</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1748448705454</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -316,6 +336,7 @@
     <MESSAGE value=" feat added : pytests" />
     <MESSAGE value=" feat added : unsplash img fetch" />
     <MESSAGE value=" feat added : installed nitrosocke/Arcane-Diffusion" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat added : installed nitrosocke/Arcane-Diffusion" />
+    <MESSAGE value=" feat added : installed nitrosocke/Arcane-Diffusion gnore" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat added : installed nitrosocke/Arcane-Diffusion gnore" />
   </component>
 </project>
