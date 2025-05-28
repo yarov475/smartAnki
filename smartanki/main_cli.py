@@ -60,6 +60,11 @@ def main():
     parser.add_argument("--pdf-output", help="Optional: path to save the extracted words as a PDF word list")
     parser.add_argument("--offline-translate",action="store_true",help=" only use Helsinki-NLP/opus-mt-en-ru model to translatr "
     )
+    parser.add_argument(
+        "--with-images",
+        action="store_true",
+        help="Include Unsplash images in Anki cards"
+    )
 
     parser.add_argument(
         "--force-google",
@@ -138,8 +143,9 @@ def main():
             translate=not args.not_translate,
             custom_tags=args.tags,
             deck_name=args.deck_name,
-            offline_translate=args.offline_translate,  # 👈 new
-            force_google=args.force_google  # 👈 new
+            offline_translate=args.offline_translate,
+            force_google=args.force_google,
+            with_images=args.with_images
         )
 
     else:
