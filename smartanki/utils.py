@@ -1,14 +1,8 @@
-# from vocab_db import init_db, list_known_words
-#
-# init_db()  # Ensures DB exists
-#
-# words = list_known_words()
-# print("Known words:", words)
-
-import argostranslate.package
-import argostranslate.translate
-
-argostranslate.package.install_from_path("smartanki/argosmodel/m.zip")
-
-installed_languages = argostranslate.translate.load_installed_languages()
-print(installed_languages)
+from diffusers import StableDiffusionPipeline
+import torch
+model_id = "nitrosocke/Arcane-Diffusion"
+pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float32)
+pipe = pipe.to("cuda" if torch.cuda.is_available() else "cpu")
+prompt = "entropy"
+image = pipe(prompt).images[0]
+image.save("./ai-antropy.png")

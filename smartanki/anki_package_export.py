@@ -18,7 +18,8 @@ def generate_anki_package(
         deck_name="SmartAnki Vocabulary Deck",
         offline_translate=False,
         force_google=False,
-        with_images=False
+        with_images=False,
+        force_ai_image=False
 ):
     media_files = []
     if custom_tags is None:
@@ -94,21 +95,26 @@ def generate_anki_package(
 
         visible_tags = ", ".join(tags)
         image_html = ""
+
         if with_images:
-            image_url = fetch_image_url(word)
-            if image_url:
-                image_filename = f"{word}.jpg"
-                image_path = os.path.join("anki_exports", image_filename)
+            result = fetch_image_url(word, force_ai=force_ai_image)
+            if result:
+                image_name = f"{word.replace(' ', '_')}_img.png"
+                image_path = os.path.join("anki_exports", image_name)
 
                 try:
-                    img_data = requests.get(image_url).content
+                    if result["type"] == "url":
+                        img_data = requests.get(result["data"]).content
+                    else:
+                        img_data = result["data"]
+
                     with open(image_path, "wb") as f:
                         f.write(img_data)
+
                     media_files.append(image_path)
                     image_html = f"<img src='{os.path.basename(image_path)}' style='max-height:200px;'>"
-
                 except Exception as e:
-                    print(f"⚠️ Could not download image for {word}: {e}")
+                    print(f"⚠️ Failed to save image for '{word}': {e}")
         note = genanki.Note(
             model=model,
             fields=[

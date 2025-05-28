@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat added : pytests">
-      <change afterPath="$PROJECT_DIR$/smartanki/image_fetcher.py" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat added : unsplash img fetch">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/test-3.apkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/user_anki.csv" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/user_words.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/sample.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/anki_package_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_package_export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/image_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/image_fetcher.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748432451769</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary=" feat added : unsplash img fetch">
+      <option name="closed" value="true" />
+      <created>1748437072009</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1748437072010</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -303,6 +309,7 @@
     <MESSAGE value=" feat added : ofline translater en_ru.argosmodel" />
     <MESSAGE value=" feat added : ofline translater en_ru.ml" />
     <MESSAGE value=" feat added : pytests" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat added : pytests" />
+    <MESSAGE value=" feat added : unsplash img fetch" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat added : unsplash img fetch" />
   </component>
 </project>

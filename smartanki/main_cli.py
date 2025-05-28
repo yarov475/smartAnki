@@ -12,6 +12,7 @@ from smartanki.pdf_reader import read_pdf_text
 from smartanki.anki_import import import_known_words_from_anki
 from smartanki.pdf_reader import read_pdf_text
 from smartanki.pdf_export import export_wordlist_to_pdf
+
 warnings.filterwarnings("ignore", category=UserWarning)
 
 
@@ -56,10 +57,18 @@ def main():
     parser.add_argument("--debug-cefr", action="store_true", help="Print CEFR debug info")
     parser.add_argument("--import-anki-csv", help="Import known words from a raw Anki-exported CSV (any format)")
     parser.add_argument("--pdf-pages", help="Page range to extract from PDF (e.g. 2-5). First page is 1.")
-    parser.add_argument("--only-import-anki", action="store_true",help="Only import Anki CSV and exit (no extraction or export)")
+    parser.add_argument("--only-import-anki", action="store_true",
+                        help="Only import Anki CSV and exit (no extraction or export)")
     parser.add_argument("--pdf-output", help="Optional: path to save the extracted words as a PDF word list")
-    parser.add_argument("--offline-translate",action="store_true",help=" only use Helsinki-NLP/opus-mt-en-ru model to translatr "
+    parser.add_argument("--offline-translate", action="store_true",
+                        help=" only use Helsinki-NLP/opus-mt-en-ru model to translatr "
+                        )
+    parser.add_argument(
+        "--force-ai-image",
+        action="store_true",
+        help="Force AI image generation instead of using Unsplash"
     )
+
     parser.add_argument(
         "--with-images",
         action="store_true",
@@ -145,7 +154,9 @@ def main():
             deck_name=args.deck_name,
             offline_translate=args.offline_translate,
             force_google=args.force_google,
-            with_images=args.with_images
+            with_images=args.with_images,
+            force_ai_image=args.force_ai_image,
+
         )
 
     else:
