@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat added : unsplash img fetch">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat added : installed nitrosocke/Arcane-Diffusion">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/magical_princess.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/anki_package_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_package_export.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/image_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/image_fetcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +281,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748437072010</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary=" feat added : installed nitrosocke/Arcane-Diffusion">
+      <option name="closed" value="true" />
+      <created>1748448283219</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1748448283220</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -310,6 +315,7 @@
     <MESSAGE value=" feat added : ofline translater en_ru.ml" />
     <MESSAGE value=" feat added : pytests" />
     <MESSAGE value=" feat added : unsplash img fetch" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat added : unsplash img fetch" />
+    <MESSAGE value=" feat added : installed nitrosocke/Arcane-Diffusion" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat added : installed nitrosocke/Arcane-Diffusion" />
   </component>
 </project>
