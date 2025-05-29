@@ -1,1 +1,5 @@
 .env
+input/*
+!input/.keep
+smartanki/anki_exports/*
+!anki_exports/.keep
