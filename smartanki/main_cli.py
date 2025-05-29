@@ -12,6 +12,7 @@ from smartanki.pdf_reader import read_pdf_text
 from smartanki.anki_import import import_known_words_from_anki
 from smartanki.pdf_reader import read_pdf_text
 from smartanki.pdf_export import export_wordlist_to_pdf
+from smartanki.vocab_db import clear_db, print_known_words, import_from_csv
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -86,8 +87,37 @@ def main():
         default=None,
         help="Extract only the top N most frequent unknown words"
     )
+    parser.add_argument(
+        "--clear-db",
+        action="store_true",
+        help="Clear all known words from the database"
+    )
+
+    parser.add_argument(
+        "--list-known",
+        action="store_true",
+        help="List all known words in the database"
+    )
+
+
 
     args = parser.parse_args()
+    # --- Handle DB-only actions ---
+    if args.clear_db:
+        clear_db()
+        print("✅ Known words database cleared.")
+
+    if args.list_known:
+        print_known_words()
+
+    if args.import_anki_csv:
+        import_from_csv(args.import_anki_csv)
+        print("✅ Imported known words from:", args.import_anki_csv)
+
+    # Exit early if no filepath and DB-only flags were used
+    if not args.filepath and (args.clear_db or args.list_known or args.import_anki_csv):
+        return
+
     if args.import_anki_csv:
         print(f"📥 Importing known words from: {args.import_anki_csv}")
         import_known_words_from_anki(args.import_anki_csv)
@@ -95,6 +125,24 @@ def main():
         if args.only_import_anki:
             print("✅ Done. Imported known words only. Exiting.")
             return
+
+        # Handle --clear-db
+        if args.clear_db:
+            clear_db()
+            print("✅ Known words database cleared.")
+
+        # Handle --list-known
+        if args.list_known:
+            print_known_words()
+
+        # Handle --import-anki-csv
+        if args.import_anki_csv:
+            import_from_csv(args.import_anki_csv)
+            print("✅ Imported known words from:", args.import_anki_csv)
+
+        # Optionally exit early if only doing DB actions
+        if args.clear_db or args.list_known or args.import_anki_csv:
+            return  # Skip the rest of the CLI pipeline
 
     def parse_page_range(range_str):
         try:
