@@ -80,6 +80,12 @@ def main():
         action="store_true",
         help="Force use of Google Translate (ignore Argos)."
     )
+    parser.add_argument(
+        "--top-n",
+        type=int,
+        default=None,
+        help="Extract only the top N most frequent unknown words"
+    )
 
     args = parser.parse_args()
     if args.import_anki_csv:
@@ -135,7 +141,8 @@ def main():
             cefr_filter=cefr,
             auto_save=not args.no_save,
             lemmatize=not args.no_lemmatize,
-            debug_cefr=args.debug_cefr
+            debug_cefr=args.debug_cefr,
+            top_n=args.top_n
         )
         pbar.update(1)
 
