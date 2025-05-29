@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat added added git ignore. stop tracking .env,smartanki/anki_exports input">
-      <change afterPath="$PROJECT_DIR$/anki_exports/anki_cards.csv" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: added top_n flag">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_top_n_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_top_n_extraction.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -338,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748521058405</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary=" feat: added top_n flag">
+      <option name="closed" value="true" />
+      <created>1748522839967</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1748522839967</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -378,6 +384,7 @@
     <MESSAGE value=" feat added : installed nitrosocke/Arcane-Diffusion" />
     <MESSAGE value=" feat added : installed nitrosocke/Arcane-Diffusion gnore" />
     <MESSAGE value=" feat added added git ignore. stop tracking .env,smartanki/anki_exports input" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat added added git ignore. stop tracking .env,smartanki/anki_exports input" />
+    <MESSAGE value=" feat: added top_n flag" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat: added top_n flag" />
   </component>
 </project>
