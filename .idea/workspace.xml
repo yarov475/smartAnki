@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: added top_n flag">
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: read and delete db">
+      <change afterPath="$PROJECT_DIR$/anki_exports/entropy_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/testing_unsplasj.apkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/review.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anki_exports/anki_cards.csv" beforeDir="false" afterPath="$PROJECT_DIR$/anki_exports/anki_cards.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/user_words.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/magical_princess.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/vocab_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/vocab_db.py" afterDir="false" />
     </list>
@@ -354,7 +359,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748523002135</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary=" feat: read and delete db">
+      <option name="closed" value="true" />
+      <created>1748526295093</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1748526295093</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -370,7 +383,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="init -- scripts" />
     <MESSAGE value="added cli" />
     <MESSAGE value="added cli 1" />
     <MESSAGE value="smartanki 1 -- working" />
@@ -395,6 +407,7 @@
     <MESSAGE value=" feat added : installed nitrosocke/Arcane-Diffusion gnore" />
     <MESSAGE value=" feat added added git ignore. stop tracking .env,smartanki/anki_exports input" />
     <MESSAGE value=" feat: added top_n flag" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat: added top_n flag" />
+    <MESSAGE value=" feat: read and delete db" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat: read and delete db" />
   </component>
 </project>

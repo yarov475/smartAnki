@@ -15,6 +15,27 @@ def get_db_connection():
     return sqlite3.connect(DB_PATH)
 
 
+
+def init_srs_table():
+    conn = get_db_connection()
+    c = conn.cursor()
+    c.execute("""
+    CREATE TABLE IF NOT EXISTS srs_words (
+        word TEXT PRIMARY KEY,
+        phonetic TEXT,
+        definition TEXT,
+        usage TEXT,
+        translation TEXT,
+        next_review DATE,
+        interval INTEGER,
+        repetitions INTEGER,
+        ease REAL,
+        last_seen DATE
+    )
+    """)
+    conn.commit()
+    conn.close()
+
 def init_db():
     """Create the known_words table if it does not exist."""
     conn = get_db_connection()
@@ -26,6 +47,7 @@ def init_db():
     ''')
     conn.commit()
     conn.close()
+    init_srs_table()
 
 # === DB OPERATIONS ===
 
@@ -86,3 +108,80 @@ def import_from_csv(csv_path: str):
 def get_db_path() -> str:
     """Return full DB file path (for debugging/info)."""
     return DB_PATH
+
+
+
+def add_srs_entry(word, phonetic, definition, usage, translation):
+    from datetime import date
+    conn = get_db_connection()
+    c = conn.cursor()
+    c.execute("""
+    INSERT OR REPLACE INTO srs_words (
+        word, phonetic, definition, usage, translation,
+        next_review, interval, repetitions, ease, last_seen
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, (
+        word.lower(), phonetic, definition, usage, translation,
+        date.today(), 1, 0, 2.5, date.today()
+    ))
+    conn.commit()
+    conn.close()
+
+
+
+
+
+def get_due_words():
+    from datetime import date
+    conn = get_db_connection()
+    c = conn.cursor()
+    today = date.today().isoformat()
+    c.execute("SELECT word FROM srs_words WHERE next_review <= ?", (today,))
+    words = [row[0] for row in c.fetchall()]
+    conn.close()
+    return words
+
+def get_due_srs_entries():
+    from datetime import date
+    conn = get_db_connection()
+    c = conn.cursor()
+    today = date.today().isoformat()
+    c.execute("""
+        SELECT word, phonetic, definition, usage, translation, interval, repetitions, ease
+        FROM srs_words
+        WHERE next_review <= ?
+        ORDER BY next_review ASC
+    """, (today,))
+    return c.fetchall()
+
+
+def update_srs_review(word, correct: bool):
+    from datetime import date, timedelta
+    conn = get_db_connection()
+    c = conn.cursor()
+    result = c.execute("SELECT interval, repetitions, ease FROM srs_words WHERE word = ?", (word,)).fetchone()
+    if not result:
+        return
+
+    interval, repetitions, ease = result
+
+    if correct:
+        repetitions += 1
+        ease = min(2.5, ease + 0.1)
+        interval = int(interval * ease)
+    else:
+        repetitions = 0
+        ease = max(1.3, ease - 0.2)
+        interval = 1
+
+    next_review = date.today() + timedelta(days=interval)
+
+    c.execute("""
+        UPDATE srs_words
+        SET interval = ?, repetitions = ?, ease = ?, next_review = ?, last_seen = ?
+        WHERE word = ?
+    """, (interval, repetitions, ease, next_review, date.today(), word))
+
+    conn.commit()
+    conn.close()

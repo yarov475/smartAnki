@@ -3,6 +3,8 @@
 import argparse
 import warnings
 from tqdm import tqdm
+
+from smartanki.review import run_review_session
 from smartanki.vocab_db import init_db
 from smartanki.cefr_filter import CEFRFilter
 from smartanki.extractor import extract_new_words
@@ -13,6 +15,9 @@ from smartanki.anki_import import import_known_words_from_anki
 from smartanki.pdf_reader import read_pdf_text
 from smartanki.pdf_export import export_wordlist_to_pdf
 from smartanki.vocab_db import clear_db, print_known_words, import_from_csv
+from smartanki.vocab_db import add_srs_entry
+from smartanki.dictionary_api import get_word_data
+from smartanki.translator import translate_to_russian
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -98,11 +103,19 @@ def main():
         action="store_true",
         help="List all known words in the database"
     )
-
+    parser.add_argument(
+        "--review",
+        action="store_true",
+        help="Review due words using spaced repetition"
+    )
 
 
     args = parser.parse_args()
     # --- Handle DB-only actions ---
+    if args.review:
+        run_review_session()
+        return
+
     if args.clear_db:
         clear_db()
         print("✅ Known words database cleared.")
@@ -195,6 +208,25 @@ def main():
         pbar.update(1)
 
     print(f"✅ {len(word_sentence_map)} new words found and added to database.\n")
+    try:
+        for word, sentence in word_sentence_map.items():
+            word_info = get_word_data(word)
+            if not word_info or not word_info.get("definition", "").strip():
+                print(f"⚠️ Skipping SRS add for '{word}' — no definition found.")
+                continue
+
+            translation = translate_to_russian(sentence)
+            add_srs_entry(
+                word=word,
+                phonetic=word_info.get("phonetic", ""),
+                definition=word_info["definition"],
+                usage=sentence,
+                translation=translation
+            )
+            print(f"📚 Added to SRS: {word}")
+    except Exception as e:
+        print(f"❌ Failed to add '{word}' to SRS: {e}")
+
     if args.pdf_output:
         export_wordlist_to_pdf(word_sentence_map, args.pdf_output)
     # STEP 4: Export
