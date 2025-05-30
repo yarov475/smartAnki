@@ -155,6 +155,14 @@ def get_due_srs_entries():
     """, (today,))
     return c.fetchall()
 
+def remove_srs_entry(word: str):
+    """Remove a word from the spaced repetition system."""
+    conn = get_db_connection()
+    c = conn.cursor()
+    c.execute("DELETE FROM srs_words WHERE word = ?", (word.lower(),))
+    conn.commit()
+    conn.close()
+
 
 def update_srs_review(word, correct: bool):
     from datetime import date, timedelta

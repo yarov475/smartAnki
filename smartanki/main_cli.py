@@ -18,11 +18,13 @@ from smartanki.vocab_db import clear_db, print_known_words, import_from_csv
 from smartanki.vocab_db import add_srs_entry
 from smartanki.dictionary_api import get_word_data
 from smartanki.translator import translate_to_russian
+from smartanki.pdf_reader import read_pdf_text
+from smartanki.web_scraper import scrape_webpage
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
 
-def read_input_text(path, page_range=None):
+def read_input_text(path_or_url, page_range=None):
     """
     Reads text from a .txt or .pdf file.
 
@@ -36,7 +38,7 @@ def read_input_text(path, page_range=None):
     Raises:
         ValueError: If the file extension is unsupported.
     """
-    path = path.strip().lower()
+    path = path_or_url.strip().lower()
 
     if path.endswith(".pdf"):
         return read_pdf_text(path, page_range)
@@ -44,6 +46,9 @@ def read_input_text(path, page_range=None):
     elif path.endswith(".txt"):
         with open(path, 'r', encoding='utf-8') as f:
             return f.read()
+    elif path.startswith("http://") or path.startswith("https://"):
+        print(f"🌐 Scraping web page: {path_or_url}")
+        return scrape_webpage(path)
 
     else:
         raise ValueError(f"❌ Unsupported file type: {path}. Use a .pdf or .txt file.")
@@ -66,49 +71,26 @@ def main():
     parser.add_argument("--only-import-anki", action="store_true",
                         help="Only import Anki CSV and exit (no extraction or export)")
     parser.add_argument("--pdf-output", help="Optional: path to save the extracted words as a PDF word list")
-    parser.add_argument("--offline-translate", action="store_true",
-                        help=" only use Helsinki-NLP/opus-mt-en-ru model to translatr "
+    parser.add_argument("--offline-translate", action="store_true",   help="only use 'Helsinki-NLP/opus-mt-en-ru model' to translate ")
+    parser.add_argument("--force-ai-image", action="store_true",  help="Force AI image generation instead of using "
+                                                                       "Unsplash"
                         )
-    parser.add_argument(
-        "--force-ai-image",
-        action="store_true",
-        help="Force AI image generation instead of using Unsplash"
-    )
 
-    parser.add_argument(
-        "--with-images",
-        action="store_true",
-        help="Include Unsplash images in Anki cards"
-    )
+    parser.add_argument("--with-images", action="store_true", help="Include Unsplash images in Anki cards"
+                        )
 
-    parser.add_argument(
-        "--force-google",
-        action="store_true",
-        help="Force use of Google Translate (ignore Argos)."
-    )
-    parser.add_argument(
-        "--top-n",
-        type=int,
-        default=None,
-        help="Extract only the top N most frequent unknown words"
-    )
-    parser.add_argument(
-        "--clear-db",
-        action="store_true",
-        help="Clear all known words from the database"
-    )
+    parser.add_argument("--force-google", action="store_true",
+                        help="Force use of Google Translate (ignore Argos)."
+                        )
+    parser.add_argument("--top-n", type=int, default=None, help="Extract only the top N most frequent unknown words"
+                        )
+    parser.add_argument("--clear-db", action="store_true", help="Clear all known words from the database"
+                        )
 
-    parser.add_argument(
-        "--list-known",
-        action="store_true",
-        help="List all known words in the database"
-    )
-    parser.add_argument(
-        "--review",
-        action="store_true",
-        help="Review due words using spaced repetition"
-    )
-
+    parser.add_argument("--list-known", action="store_true", help="List all known words in the database"
+                        )
+    parser.add_argument("--review", action="store_true", help="Review due words using spaced repetition"
+                        )
 
     args = parser.parse_args()
     # --- Handle DB-only actions ---
@@ -169,7 +151,7 @@ def main():
     with tqdm(total=3, desc="🔧 Setup", unit="step") as pbar:
         init_db()
         pbar.update(1)
-        cefr = CEFRFilter("./data/cefr_wordlist.csv", args.cefr.upper())
+        cefr = CEFRFilter(args.cefr.upper())
         pbar.update(1)
         pbar.update(1)  # Placeholder for any setup steps
     print("✅ Setup complete.\n")
