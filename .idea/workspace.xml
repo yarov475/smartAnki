@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: added cleaner function">
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: apkg by default DELETED cerffpy tag">
+      <change afterPath="$PROJECT_DIR$/anki_exports/smartanki.apkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/configurator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/fonts/conf.test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/user_words.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/anki_package_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_package_export.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -389,7 +392,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748697419699</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary=" feat: apkg by default DELETED cerffpy tag">
+      <option name="closed" value="true" />
+      <created>1748700558596</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1748700558596</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -405,7 +416,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="smartanki FEAT lemmatizing, no save to usersword db" />
     <MESSAGE value="FEAT: skipping word if no translation" />
     <MESSAGE value="using cefrpy" />
     <MESSAGE value=" feat: Added separation to sentenses" />
@@ -430,6 +440,7 @@
     <MESSAGE value=" feat: added srs" />
     <MESSAGE value=" feat: debug ai generation of image DELETED api translation" />
     <MESSAGE value=" feat: added cleaner function" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat: added cleaner function" />
+    <MESSAGE value=" feat: apkg by default DELETED cerffpy tag" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat: apkg by default DELETED cerffpy tag" />
   </component>
 </project>

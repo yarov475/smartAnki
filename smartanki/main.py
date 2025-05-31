@@ -27,17 +27,10 @@ print(get_word_data("write"))  # Likely will use API
 # 8 work with  pnj jpeg
 # cashing
 
-# stop words clean text
+
 # add audio
 # refactor
 # add config for api
-# add connected comands and subcomands admin panel
-
-    # connect --with images and --ai force and both with create aplc
-    # admin
-        #config  input output api tokems
-        # db managemant
-        #     delete
-        #     list
-        #     open in gui and cli
+#
+#     open in explorer
 
