@@ -4,14 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: apkg by default DELETED cerffpy tag">
-      <change afterPath="$PROJECT_DIR$/anki_exports/smartanki.apkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartanki/configurator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartanki/fonts/conf.test.py" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: sumtask and cobfig init">
+      <change afterPath="$PROJECT_DIR$/.smartanki_config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/catalonia_unsplash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/pyrenees_unsplash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/admin_cli.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/ankiConnect.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/anki_addons.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/config_cli.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/custom_font.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/get_better_definition.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/get_definition_and_example.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/get_phonetic_placeholder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/highlight_word.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/run_CLI.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/task_switcher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/transalter_f.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/w.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anki_exports/smartanki.apkg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db/user_words.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/anki_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/anki_package_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_package_export.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/pdf_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/pdf_export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/translator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +47,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="cli-word-cleaning" />
+        <entry key="$PROJECT_DIR$" value="cli-refactor" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,6 +66,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.ankiConnect.executor": "Run",
     "Python.deepaiimggen.executor": "Run",
     "Python.dictionary_api.executor": "Run",
     "Python.image_fetcher.executor": "Run",
@@ -58,7 +77,7 @@
     "Python.yandex_test.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "cli-commands",
+    "git-widget-placeholder": "cli-refactor",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "E:/Python apps/smartAnki/smartanki"
   }
@@ -400,7 +419,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748700558596</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary=" feat: sumtask and cobfig init">
+      <option name="closed" value="true" />
+      <created>1748706470745</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1748706470745</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -416,7 +443,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="FEAT: skipping word if no translation" />
     <MESSAGE value="using cefrpy" />
     <MESSAGE value=" feat: Added separation to sentenses" />
     <MESSAGE value=" feat: added translation of sentsnses" />
@@ -441,6 +467,7 @@
     <MESSAGE value=" feat: debug ai generation of image DELETED api translation" />
     <MESSAGE value=" feat: added cleaner function" />
     <MESSAGE value=" feat: apkg by default DELETED cerffpy tag" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat: apkg by default DELETED cerffpy tag" />
+    <MESSAGE value=" feat: sumtask and cobfig init" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat: sumtask and cobfig init" />
   </component>
 </project>

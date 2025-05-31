@@ -1,0 +1,6 @@
+{
+  "UNSPLASH_ACCESS_KEY": "sp",
+  "YANDEX_KEY": "ya",
+  "INPUT_DIR": "downloads",
+  "EXPORT_DIR": "csvexp"
+}

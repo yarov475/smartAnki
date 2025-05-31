@@ -3,7 +3,7 @@ import genanki
 
 from smartanki.dictionary_api import get_word_data
 from smartanki.translator import translate_to_russian
-from smartanki.anki_export import highlight_word
+from smartanki.highlight_word import highlight_word
 from smartanki.image_fetcher import fetch_image_url
 from smartanki.utils import clean_word
 

@@ -1,48 +1,9 @@
 import csv
 import os
-import re
-from nltk.corpus import wordnet
 from smartanki.dictionary_api import get_word_data
+from smartanki.highlight_word import highlight_word
 from smartanki.translator import translate_to_russian
 from smartanki.utils import clean_word
-
-
-def highlight_word(text: str, word: str):
-    # Match word and optional possessive endings
-    pattern = re.compile(rf"\b({re.escape(word)})(?:'s)?\b", re.IGNORECASE)
-    return pattern.sub(r'<b>\1</b>', text)
-
-
-def get_definition_and_example(word):
-    synsets = wordnet.synsets(word)
-    if not synsets:
-        return ("", "")
-    definition = synsets[0].definition()
-    examples = synsets[0].examples()
-    example = examples[0] if examples else ""
-    return (definition, example)
-
-
-from nltk.corpus import wordnet as wn
-
-
-def get_better_definition(word):
-    synsets = wn.synsets(word)
-    if not synsets:
-        return "", ""
-
-    # Prefer nouns > verbs > others
-    priority = ['n', 'v', 'a', 'r']
-    synsets.sort(key=lambda s: priority.index(s.pos()) if s.pos() in priority else 99)
-
-    definition = synsets[0].definition()
-    example = synsets[0].examples()[0] if synsets[0].examples() else ""
-    return definition, example
-
-
-def get_phonetic_placeholder(word):
-    # Placeholder phonetics (IPA data requires external services or CMU dict)
-    return f"/{word}/"
 
 
 def generate_anki_csv(word_sentence_map, output_file='anki_exports/anki_cards.csv', translate=True):
