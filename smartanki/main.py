@@ -26,7 +26,7 @@ print(get_word_data("write"))  # Likely will use API
 
 # 8 work with  pnj jpeg
 # cashing
-# clean string stopwords igmore
+
 # stop words clean text
 # add audio
 # refactor

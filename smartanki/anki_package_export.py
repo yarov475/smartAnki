@@ -9,16 +9,16 @@ from smartanki.utils import clean_word
 
 
 def generate_anki_package(
-    word_sentence_map,
-    cefr_filter,
-    output_path="anki_exports/smartanki.apkg",
-    translate=True,
-    custom_tags=None,
-    deck_name="SmartAnki Vocabulary Deck",
-    offline_translate=False,
-    force_google=False,
-    with_images=False,
-    force_ai_image=False
+        word_sentence_map,
+        cefr_filter,
+        output_path="anki_exports/smartanki.apkg",
+        translate=True,
+        custom_tags=None,
+        deck_name="SmartAnki Vocabulary Deck",
+        offline_translate=False,
+        force_google=False,
+        with_images=False,
+        force_ai_image=False
 ):
     media_files = []
     if custom_tags is None:
@@ -88,11 +88,14 @@ def generate_anki_package(
         # Tags
         level, source = cefr_filter.get_cefr_level(word, debug=False)
         tags = list(custom_tags)
+
         if level:
-            tags.append(f"cefr::{cefr_filter.get_cefr_level(cleaned_word)}")
-        # if source:
-        #     tags.append(f"source::{source}")
+            tags.append(f"cefr::{level}")  # ✅ Safe: no tuple, just string
+        if level and isinstance(level, str):
+            tags.append(f"cefr::{level}")
+
         visible_tags = ", ".join(tags)
+        print(f"🔖 Tags for '{word}': {tags}")
 
         # 🔽 Image Handling
         image_html = ""

@@ -58,11 +58,13 @@ def main():
     parser = argparse.ArgumentParser(description="📘 SmartAnki CLI – CEFR Vocabulary Extractor + Anki Deck Generator")
     parser.add_argument("filepath", nargs="?", help="Path to input file (.pdf or .txt)")
     parser.add_argument("--cefr", default="B2", help="User CEFR level (default: B2)")
-    parser.add_argument("--csv", default="anki_exports/anki_cards.csv", help="CSV output path")
+    parser.add_argument("--csv", metavar="CSV_PATH", help="Optional: Export cards to CSV at given path")
     parser.add_argument("--no-save", action="store_true", help="Don't save new words to database")
     parser.add_argument("--not-translate", action="store_true", help="Disable sentence translation")
     parser.add_argument("--no-lemmatize", action="store_true", help="Disable lemmatization")
-    parser.add_argument("--export-apkg", action="store_true", help="Export as native Anki .apkg file")
+    parser.add_argument("--export-apkg", action="store_true", help="Export Anki deck (.apkg) [default]")
+    parser.add_argument("--apkg", default="anki_exports/smartanki.apkg",
+                        help="Path to output .apkg (default: smartanki.apkg)")
     parser.add_argument("--tags", nargs="*", default=[], help="Custom tags for each card (space-separated)")
     parser.add_argument("--deck-name", default="SmartAnki Vocabulary Deck", help="Name of the Anki deck")
     parser.add_argument("--debug-cefr", action="store_true", help="Print CEFR debug info")
@@ -93,6 +95,7 @@ def main():
                         )
 
     args = parser.parse_args()
+    apkg_path = args.apkg
     # --- Handle DB-only actions ---
     if args.review:
         run_review_session()
@@ -212,24 +215,25 @@ def main():
     if args.pdf_output:
         export_wordlist_to_pdf(word_sentence_map, args.pdf_output)
     # STEP 4: Export
-    if args.export_apkg:
-        print(f"📦 Generating Anki deck: {args.deck_name}")
+    # Export APKG by default
+    if args.export_apkg or not args.csv:
+        print(f"💾 Exporting Anki deck to {apkg_path}...")
         generate_anki_package(
             word_sentence_map,
             cefr_filter=cefr,
-            output_path=f"anki_exports/{args.deck_name.replace(' ', '_')}.apkg",
+            output_path=apkg_path,
             translate=not args.not_translate,
-            custom_tags=args.tags,
+            custom_tags=args.tags or [],
             deck_name=args.deck_name,
             offline_translate=args.offline_translate,
             force_google=args.force_google,
             with_images=args.with_images,
-            force_ai_image=args.force_ai_image,
-
+            force_ai_image=args.force_ai_image
         )
 
-    else:
-        print(f"💾 Exporting Anki cards to {args.csv}...")
+    # Export CSV only if explicitly requested
+    if args.csv:
+        print(f"💾 Exporting Anki cards to CSV: {args.csv}...")
         generate_anki_csv(
             word_sentence_map,
             output_file=args.csv,
