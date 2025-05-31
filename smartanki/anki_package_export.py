@@ -5,6 +5,7 @@ from smartanki.dictionary_api import get_word_data
 from smartanki.translator import translate_to_russian
 from smartanki.anki_export import highlight_word
 from smartanki.image_fetcher import fetch_image_url
+from smartanki.utils import clean_word
 
 
 def generate_anki_package(
@@ -70,7 +71,8 @@ def generate_anki_package(
     media_output_dir = os.path.dirname(output_path)
 
     for word, sentence in word_sentence_map.items():
-        word_info = get_word_data(word)
+        cleaned_word = clean_word(word)
+        word_info = get_word_data(cleaned_word)
         if not word_info or not word_info.get("definition", "").strip():
             print(f"⚠️ Skipping '{word}' – no definition available.")
             skipped.append(word)
@@ -87,9 +89,9 @@ def generate_anki_package(
         level, source = cefr_filter.get_cefr_level(word, debug=False)
         tags = list(custom_tags)
         if level:
-            tags.append(f"cefr::{level}")
-        if source:
-            tags.append(f"source::{source}")
+            tags.append(f"cefr::{cefr_filter.get_cefr_level(cleaned_word)}")
+        # if source:
+        #     tags.append(f"source::{source}")
         visible_tags = ", ".join(tags)
 
         # 🔽 Image Handling

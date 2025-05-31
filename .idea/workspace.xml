@@ -4,29 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: added srs">
-      <change afterPath="$PROJECT_DIR$/smartanki/init_Helsinki-NLP_opus-mt-en-ru.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartanki/web_scraper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartanki/yandex_api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartanki/yandex_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_srs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_web_scrapper.py" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: debug ai generation of image DELETED api translation">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/anki_cards.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/entropy_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/testing_unsplasj.apkg" beforeDir="false" afterPath="$PROJECT_DIR$/anki_exports/SmartAnki_Vocabulary_Deck.apkg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anki_exports/SmartAnki_Vocabulary_Deck.apkg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db/user_words.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/anki_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_export.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/anki_package_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_package_export.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/cefr_filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/cefr_filter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/image_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/image_fetcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/dictionary_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/dictionary_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/extractor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/review.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/review.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/test_runner.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/translator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/vocab_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/vocab_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/yandex_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/yandex_api.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="cli-web-scraper" />
+        <entry key="$PROJECT_DIR$" value="cli-ai-ganarate-fix" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,7 +63,7 @@
     "Python.yandex_test.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "cli-ai-ganarate-fix",
+    "git-widget-placeholder": "cli-word-cleaning",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "E:/Python apps/smartAnki/smartanki"
   }
@@ -390,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748533190065</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary=" feat: debug ai generation of image DELETED api translation">
+      <option name="closed" value="true" />
+      <created>1748611841426</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1748611841426</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -406,7 +405,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added cli 1" />
     <MESSAGE value="smartanki 1 -- working" />
     <MESSAGE value="smartanki FEAT lemmatizing, no save to usersword db" />
     <MESSAGE value="FEAT: skipping word if no translation" />
@@ -431,6 +429,7 @@
     <MESSAGE value=" feat: added top_n flag" />
     <MESSAGE value=" feat: read and delete db" />
     <MESSAGE value=" feat: added srs" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat: added srs" />
+    <MESSAGE value=" feat: debug ai generation of image DELETED api translation" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat: debug ai generation of image DELETED api translation" />
   </component>
 </project>

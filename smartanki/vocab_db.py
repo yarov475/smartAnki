@@ -4,6 +4,8 @@ import sqlite3
 import os
 import csv
 from typing import List
+from contextlib import closing
+from smartanki.utils import clean_word
 
 # === DB SETUP ===
 
@@ -11,9 +13,18 @@ DB_DIR = os.path.join(os.path.dirname(__file__), '..', 'db')
 os.makedirs(DB_DIR, exist_ok=True)
 DB_PATH = os.path.join(DB_DIR, 'user_words.db')
 
+
+def add_known_words(words: List[str]):
+    """Add a list of words to the known words database."""
+    with get_db_connection() as conn:
+        c = conn.cursor()
+        for word in words:
+            word = clean_word(word)
+            c.execute('INSERT OR IGNORE INTO known_words (word) VALUES (?)', (word,))
+        conn.commit()
+
 def get_db_connection():
     return sqlite3.connect(DB_PATH)
-
 
 
 def init_srs_table():
@@ -36,6 +47,7 @@ def init_srs_table():
     conn.commit()
     conn.close()
 
+
 def init_db():
     """Create the known_words table if it does not exist."""
     conn = get_db_connection()
@@ -49,26 +61,21 @@ def init_db():
     conn.close()
     init_srs_table()
 
+
 # === DB OPERATIONS ===
 
-def add_known_words(words: List[str]):
-    """Add words to the known_words table, ignoring duplicates."""
-    conn = get_db_connection()
-    c = conn.cursor()
-    c.executemany('INSERT OR IGNORE INTO known_words (word) VALUES (?)',
-                  [(word.lower(),) for word in words])
-    conn.commit()
-    conn.close()
 
 
 def is_known(word: str) -> bool:
     """Check if a word is marked as known."""
-    conn = get_db_connection()
-    c = conn.cursor()
-    c.execute('SELECT 1 FROM known_words WHERE word = ?', (word.lower(),))
-    result = c.fetchone()
-    conn.close()
-    return result is not None
+    word = clean_word(word)
+    with closing(get_db_connection()) as conn:
+        c = conn.cursor()
+        c.execute('SELECT 1 FROM known_words WHERE word = ?', (word,))
+        return c.fetchone() is not None
+
+
+
 
 
 def list_known_words() -> List[str]:
@@ -110,7 +117,6 @@ def get_db_path() -> str:
     return DB_PATH
 
 
-
 def add_srs_entry(word, phonetic, definition, usage, translation):
     from datetime import date
     conn = get_db_connection()
@@ -129,9 +135,6 @@ def add_srs_entry(word, phonetic, definition, usage, translation):
     conn.close()
 
 
-
-
-
 def get_due_words():
     from datetime import date
     conn = get_db_connection()
@@ -141,6 +144,7 @@ def get_due_words():
     words = [row[0] for row in c.fetchall()]
     conn.close()
     return words
+
 
 def get_due_srs_entries():
     from datetime import date
@@ -154,6 +158,7 @@ def get_due_srs_entries():
         ORDER BY next_review ASC
     """, (today,))
     return c.fetchall()
+
 
 def remove_srs_entry(word: str):
     """Remove a word from the spaced repetition system."""

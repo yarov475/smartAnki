@@ -26,7 +26,7 @@ def generate_yandex_image(word: str, output_dir: str = "anki_exports") -> dict |
         print(f"🎨 Generating image for '{word}' via Yandex AI...")
 
         sdk = YCloudML(folder_id=folder_id_token, auth=yandex_api_key)
-        model = sdk.models.image_generation("yandex-art").configure(width_ratio=2, height_ratio=1, seed=1863)
+        model = sdk.models.image_generation("yandex-art").configure(width_ratio=1, height_ratio=1, seed=1863)
 
         operation = model.run_deferred(word)
         result = operation.wait()

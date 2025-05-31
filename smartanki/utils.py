@@ -1,19 +1,26 @@
-import os
-import requests
-from dotenv import load_dotenv
-load_dotenv()
-hf = os.getenv("HF")
+import re
 
-from huggingface_hub import InferenceClient
+def clean_word(word: str) -> str:
+    """
+    Cleans a word by:
+    - Lowercasing
+    - Stripping whitespace
+    - Normalizing apostrophes (e.g., ` ’ → ')
+    - Removing possessive 's
+    - Removing punctuation (preserving hyphens)
+    """
+    word = word.strip().lower()
 
-client = InferenceClient(
-    provider="fal-ai",
-    api_key=hf,
-)
+    # Normalize apostrophes and backticks to straight quote
+    word = word.replace("’", "'").replace("`", "'").replace("‘", "'")
 
-# output is a PIL.Image object
-image = client.text_to_image(
-    "Astronaut riding a horse",
-    model="black-forest-labs/FLUX.1-dev",
-)
-image.save(fp=2)
+    # Remove possessive 's (but not plural 's')
+    word = re.sub(r"'s\b", "", word)
+
+    # Remove leading/trailing quotes
+    word = word.strip("'\"")
+
+    # Remove any remaining non-word characters except hyphens
+    word = re.sub(r"[^\w\-]", "", word)
+
+    return word

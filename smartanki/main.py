@@ -23,12 +23,21 @@ print(get_word_data("xyzzy"))  # Likely not in API, will use WordNet
 print(get_word_data("write"))  # Likely will use API
 
 #  TODO
-# add media image generater (yandex sber &) hf
-# 8 work with html pnj jpeg
-# backflow to google translate if mot api and wordnet
+
+# 8 work with  pnj jpeg
 # cashing
 # clean string stopwords igmore
 # stop words clean text
-
+# add audio
 # refactor
+# add config for api
+# add connected comands and subcomands admin panel
+
+    # connect --with images and --ai force and both with create aplc
+    # admin
+        #config  input output api tokems
+        # db managemant
+        #     delete
+        #     list
+        #     open in gui and cli
 

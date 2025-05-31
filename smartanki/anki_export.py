@@ -4,10 +4,12 @@ import re
 from nltk.corpus import wordnet
 from smartanki.dictionary_api import get_word_data
 from smartanki.translator import translate_to_russian
+from smartanki.utils import clean_word
 
 
 def highlight_word(text: str, word: str):
-    pattern = re.compile(rf'\b({re.escape(word)})\b', re.IGNORECASE)
+    # Match word and optional possessive endings
+    pattern = re.compile(rf"\b({re.escape(word)})(?:'s)?\b", re.IGNORECASE)
     return pattern.sub(r'<b>\1</b>', text)
 
 
@@ -52,9 +54,9 @@ def generate_anki_csv(word_sentence_map, output_file='anki_exports/anki_cards.cs
         writer.writerow(["Word", "Phonetic", "Definition", "Example", "Translation", "POS"])
 
         for word, sentence in word_sentence_map.items():
-            word_info = get_word_data(word)
+            cleaned_word = clean_word(word)
+            word_info = get_word_data(cleaned_word)
             if not word_info or not word_info["definition"].strip():
-                # print(f"⚠️ Skipping '{word}' – no dictionary data.")
                 skipped.append(word)
                 continue
 
@@ -66,11 +68,10 @@ def generate_anki_csv(word_sentence_map, output_file='anki_exports/anki_cards.cs
                 translated_sentence = translate_to_russian(sentence)
                 translated_word = translate_to_russian(word)
 
-                # Now try to highlight the translated word in the translated sentence
                 if translated_word and translated_word in translated_sentence:
                     translation = highlight_word(translated_sentence, translated_word)
                 else:
-                    translation = translated_sentence  # fallback without highlighting
+                    translation = translated_sentence
 
             writer.writerow([
                 word_info["word"],
@@ -87,8 +88,3 @@ def generate_anki_csv(word_sentence_map, output_file='anki_exports/anki_cards.cs
         for word in skipped:
             print(f"  - {word}")
 
-    print(f"\n📤 Export complete. Skipped {len(skipped)} words due to missing info.")
-    if skipped:
-        print("📝 Skipped words:")
-        for word in skipped:
-            print(f"  - {word}")
