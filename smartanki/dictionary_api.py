@@ -1,7 +1,6 @@
 # smartanki/dictionary_api.py
 
 import requests
-
 from smartanki.utils import clean_word
 from smartanki.wordnet_backup import get_wordnet_data
 
@@ -12,7 +11,7 @@ def get_word_data(word: str):
     try:
         response = requests.get(url, timeout=10)
         if response.status_code != 200:
-            # print(f"⚠️ API miss for '{word}', falling back to WordNet.")
+            print(f"⚠️ API miss for '{word}', falling back to WordNet.")
             return get_wordnet_data(word)
 
         data = response.json()
