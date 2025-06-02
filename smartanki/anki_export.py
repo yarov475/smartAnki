@@ -7,7 +7,9 @@ from smartanki.utils import clean_word
 
 
 def generate_anki_csv(word_sentence_map, output_file='anki_exports/anki_cards.csv', translate=True):
-    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    dir_path = os.path.dirname(output_file)
+    if dir_path:
+        os.makedirs(dir_path, exist_ok=True)
     skipped = []
 
     with open(output_file, mode='w', newline='', encoding='utf-8') as f:

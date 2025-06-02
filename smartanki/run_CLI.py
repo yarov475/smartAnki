@@ -2,6 +2,7 @@ from tqdm import tqdm
 
 from smartanki.anki_export import generate_anki_csv
 from smartanki.anki_import import import_known_words_from_anki
+from smartanki.anki_importer import import_deck
 from smartanki.anki_package_export import generate_anki_package
 from smartanki.cefr_filter import CEFRFilter
 from smartanki.dictionary_api import get_word_data
@@ -98,3 +99,6 @@ def handle_run(args):
         )
 
     print("🎉 Done! You can now import your Anki deck.")
+    if args.import_to_anki:
+        import_deck(apkg_path)
+        print("🎉 Done! You can now import your Anki deck.")

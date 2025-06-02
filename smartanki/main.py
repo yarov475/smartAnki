@@ -23,14 +23,10 @@ print(get_word_data("xyzzy"))  # Likely not in API, will use WordNet
 print(get_word_data("write"))  # Likely will use API
 
 #  TODO
-
 # 8 work with  pnj jpeg
 # cashing
-
-
 # add audio
-# refactor
-# add config for api
-#
-#     open in explorer
+# auto import to anki with flag
+# make GUI turn to anki addon
+#  open in explorer
 
