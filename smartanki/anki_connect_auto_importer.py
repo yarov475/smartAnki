@@ -27,7 +27,7 @@ def wait_for_anki(max_retries=10, delay=2):
             if response.status_code == 200:
                 return True
         except requests.RequestException:
-            print("⏳ Waiting for AnkiConnect to become available...from anki connect")
+            print("⏳ Waiting for AnkiConnect to become available...")
             time.sleep(delay)
     return False
 
@@ -97,3 +97,6 @@ def auto_import_to_anki(deck_path, expected_deck_name):
         print("🎉 Cards imported and Anki closed successfully.")
     else:
         print(f"⚠️ Deck '{expected_deck_name}' was not found after import.")
+
+
+        # TODO check for dubles

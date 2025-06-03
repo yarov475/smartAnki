@@ -4,27 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: added import-words unstad of --import-anki-csv and --only import">
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat: fix auto export smartanki.apkg Fic cistom name withowt spaces BUG: cistom name with spases">
+      <change afterPath="$PROJECT_DIR$/anki_exports/smartanki.apkg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/ascent_unsplash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/blog_unsplash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/catalonia_unsplash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/km_unsplash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/lactic_yandex.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/matterhorn_unsplash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/pyrenees_unsplash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/smartanki.apkg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db/user_words.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/admin_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/admin_cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/ankiConnect.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/anki_addons.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/anki_import.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_import.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/anki_importer.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_connect_auto_importer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/data/cefr_wordlist.csv.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/dictionary_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/dictionary_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/anki_connect_auto_importer.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_connect_auto_importer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/anki_package_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_package_export.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/run_CLI.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/run_CLI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/yandex_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -439,7 +428,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748870996530</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary=" feat: fix auto export smartanki.apkg Fic cistom name withowt spaces BUG: cistom name with spases">
+      <option name="closed" value="true" />
+      <created>1748894838151</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1748894838151</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -455,7 +452,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value=" feat: added translation of sentsnses" />
     <MESSAGE value=" feat: added  --not-translate  Disable sentence translation (enabled by default)" />
     <MESSAGE value=" feat: added  apkg generation" />
     <MESSAGE value=" feat: visible tags" />
@@ -480,6 +476,7 @@
     <MESSAGE value=" feat: sumtask and cobfig init" />
     <MESSAGE value=" feat: refactor" />
     <MESSAGE value=" feat: added import-words unstad of --import-anki-csv and --only import" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat: added import-words unstad of --import-anki-csv and --only import" />
+    <MESSAGE value=" feat: fix auto export smartanki.apkg Fic cistom name withowt spaces BUG: cistom name with spases" />
+    <option name="LAST_COMMIT_MESSAGE" value=" feat: fix auto export smartanki.apkg Fic cistom name withowt spaces BUG: cistom name with spases" />
   </component>
 </project>

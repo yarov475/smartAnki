@@ -1,28 +1,24 @@
-Word,Phonetic,Definition,Example,Translation,POS
-pyrenees,/pyrenees/,a chain of mountains between France and Spain,"And that
-really does mean his whole life, as he grew up 2,000 metres above sea level
-in the <b>Pyrenees</b> in the ski resort of Lles de Cerdanya in Catalonia, north-
-eastern Spain.","И это действительно означает всю его жизнь, когда он вырос на 2 000 метров над уровнем моря в Пиренеях на лыжном курорте Ллес-де-Серданья в Каталонии, северо-восточная Испания.",n
-catalonia,/catalonia/,a region of northeastern Spain,"And that
-really does mean his whole life, as he grew up 2,000 metres above sea level
-in the Pyrenees in the ski resort of Lles de Cerdanya in <b>Catalonia</b>, north-
-eastern Spain.","И это действительно означает всю его жизнь, когда он вырос на 2 000 метров над уровнем моря в Пиренеях на лыжном курорте Ллес-де-Серданья в Каталонии, северо-восточная Испания.",n
-ascent,/əˈsɛnt/,The act of ascending; a motion upwards.,"For his record-breaking <b>ascent</b>
-and descent of the Matterhorn, he prepared by climbing the mountain ten times
-until he knew every detail of it, even including where the sun would be
-shining at every part of the day.","Для своего рекордного восхождения и спуска Маттерхорна он подготовился, забравшись на гору десять раз, пока не узнает всех подробностей, даже когда солнце будет светить в каждую часть дня.",noun
-matterhorn,/matterhorn/,"a mountain in the Alps on the border between Switzerland and Italy (14,780 feet high); noted for its distinctive shape","For his record-breaking ascent
-and descent of the <b>Matterhorn</b>, he prepared by climbing the mountain ten times
-until he knew every detail of it, even including where the sun would be
-shining at every part of the day.","Для своего рекордного восхождения и спуска Маттерхорна он подготовился, забравшись на гору десять раз, пока не узнает всех подробностей, даже когда солнце будет светить в каждую часть дня.",n
-lactic,/ˈlæktɪk/,"Of, relating to, or derived from milk","He breathes more
-efficiently than average people too, taking in more oxygen per breath, and he
-has a much faster recovery time after exercise as his body quickly breaks
-down <b>lactic</b> acid – the acid in muscles that causes pain after exercise.","Он дышит более эффективно, чем обычные люди, и принимает больше кислорода на дыхание, и у него гораздо более быстрое восстановление после физических упражнений, когда его тело быстро ломает лактическую кислоту – кислоту в мышцах, которая вызывает боль после упражнений.",adjective
-km,/km/,a metric unit of length equal to 1000 meters (or 0.621371 miles),"For example, he almost gave
-himself kidney failure after only drinking 3.5 litres of water on a 100km run
-in temperatures of around 40°C.","Например, он чуть не повредил себе почки после того, как выпил только 3,5 литра воды на 100 <b>км</b> в температурах около 40°C.",n
-blog,/blɑɡ/,"A website that allows users to reflect, share opinions, and discuss various topics in the form of an online journal, sometimes letting readers comment on their posts. Most blogs are written in a slightly informal tone (personal journals, news, businesses, etc.)","And even here, Kilian’s achievements exceed the
-average person as, somehow, he finds time to record his career on his <b>blog</b>
-and has written three books, Run or Die, The Invisible Border and Summits of
-My Life.","И даже здесь достижения Килианца превосходят средний человек, так как он каким-то образом находит время записать свою карьеру в своем блоге и написал три книги: ""Рыба или смерть"", ""Невидимая граница"" и ""Встречи моей жизни"".",noun
+smartanki input/sample.pdf top-n 2  run --import-to-anki
+
+
+ parser_run = subparsers.add_parser("run", help="Extract words and generate Anki decks")
+    parser_run.add_argument("filepath", help="Path to .txt/.pdf or URL")
+    parser_run.add_argument("--cefr", default="B2")
+    parser_run.add_argument("--csv")
+    parser_run.add_argument("--no-save", action="store_true")
+    parser_run.add_argument("--no-lemmatize", action="store_true")
+    parser_run.add_argument("--not-translate", action="store_true")
+    parser_run.add_argument("--export-apkg", action="store_true")
+    parser_run.add_argument("--apkg", default="anki_exports/smartanki.apkg")
+    parser_run.add_argument("--deck-name", default="SmartAnki Vocabulary Deck")
+    parser_run.add_argument("--tags", nargs="*", default=[])
+    parser_run.add_argument("--debug-cefr", action="store_true")
+    parser_run.add_argument("--offline-translate", action="store_true")
+    parser_run.add_argument("--force-google", action="store_true")
+    parser_run.add_argument("--with-images", action="store_true")
+    parser_run.add_argument("--force-ai-image", action="store_true")
+    parser_run.add_argument("--top-n", type=int)
+    parser_run.add_argument("--pdf-pages", help="Page range (e.g., 1-5)")
+    parser_run.add_argument("--pdf-output", help="Output PDF word list")
+    parser_run.add_argument("--import-to-anki", action="store_true",
+                            help="Automatically import the deck into Anki after export")

@@ -55,9 +55,27 @@ def read_input_text(path_or_url: str, page_range=None) -> str:
     else:
         raise ValueError(f"❌ Unsupported file type: {path}. Use a .pdf, .txt, or URL.")
 
+
+import re
+
+
+import re
+
 def deck_name_to_filename(deck_name: str) -> str:
-    """Convert a deck name to a safe filename."""
-    return deck_name.strip().replace(" ", "-") + ".apkg"
+    """Convert a deck name to a safe filename ending with .apkg"""
+    # Strip leading/trailing whitespace
+    safe_name = deck_name.strip()
+    # Replace illegal characters on Windows/macOS/Linux
+    safe_name = re.sub(r'[<>:"/\\|?*]', '-', safe_name)
+    # Replace spaces with hyphens
+    safe_name = safe_name.replace(" ", "-")
+    # Collapse multiple hyphens
+    safe_name = re.sub(r'-+', '-', safe_name)
+    # Trim leading/trailing hyphens
+    safe_name = safe_name.strip('-')
+    # Ensure .apkg extension
+    return f"{safe_name}.apkg"
+
 
 
 

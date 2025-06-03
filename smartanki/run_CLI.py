@@ -11,6 +11,11 @@ from smartanki.pdf_export import export_wordlist_to_pdf
 from smartanki.translator import translate_to_russian
 from smartanki.utils import parse_page_range, read_input_text, deck_name_to_filename
 from smartanki.vocab_db import init_db, add_srs_entry
+import re
+import os
+
+def sanitize_filename(name: str) -> str:
+    return re.sub(r"[^a-zA-Z0-9_-]", "_", name.strip())
 
 
 def handle_run(args):
@@ -41,13 +46,10 @@ def handle_run(args):
             top_n=args.top_n
         )
         pbar.update(1)
-
-    print(f"✅ {len(word_sentence_map)} new words found and added to database.\n")
-
-    # if word_sentence_map ==0:
-    #     print('⚠️  No new words!')
-    #     return
-    # TODO if this return works?
+    if not word_sentence_map:
+        print("⚠️  No new words found! try   'run --no-lemmatize' or  'admin clear-db' flags 🤔")
+        return
+    print(f"✅👀  {len(word_sentence_map)} new words found and added to database.\n")
 
     for word, sentence in word_sentence_map.items():
         word_info = get_word_data(word)
@@ -72,7 +74,19 @@ def handle_run(args):
         export_wordlist_to_pdf(word_sentence_map, args.pdf_output)
 
     deck_filename = deck_name_to_filename(args.deck_name)
-    apkg_path = args.apkg or os.path.join("anki_exports", deck_filename)
+    print(args.deck_name,'!')
+    print(args.apkg,'!!! args.apkg')
+    # apkg_path = args.apkg or os.path.join("anki_exports", deck_filename)
+    apkg_path = f'anki_exports/{deck_filename}'
+
+
+    print(f"🔍 Original deck name: {args.deck_name}")
+    print(f"🔍 Converted filename: {deck_filename}")
+    print(f"🔍 Final path: {apkg_path}")
+    if os.path.exists(apkg_path):
+        print(f"✅ File created at: {apkg_path}")
+    else:
+        print(f"❌ File not found at: {apkg_path}")
 
     if args.export_apkg or not args.csv:
         print(f"💾 Exporting Anki deck to {apkg_path}...")
