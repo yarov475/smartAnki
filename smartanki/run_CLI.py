@@ -11,11 +11,10 @@ from smartanki.pdf_export import export_wordlist_to_pdf
 from smartanki.translator import translate_to_russian
 from smartanki.utils import parse_page_range, read_input_text, deck_name_to_filename
 from smartanki.vocab_db import init_db, add_srs_entry
-import re
+
 import os
 
-def sanitize_filename(name: str) -> str:
-    return re.sub(r"[^a-zA-Z0-9_-]", "_", name.strip())
+
 
 
 def handle_run(args):

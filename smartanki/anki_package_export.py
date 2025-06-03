@@ -1,5 +1,6 @@
 import os
 import genanki
+from gtts import gTTS
 
 from smartanki.dictionary_api import get_word_data
 from smartanki.translator import translate_to_russian
@@ -35,6 +36,7 @@ def generate_anki_package(
             {"name": "POS"},
             {"name": "Tags"},
             {"name": "Image"},
+            {"name": "Audio"},
         ],
         templates=[
             {
@@ -44,6 +46,7 @@ def generate_anki_package(
                   <b>{{Word}}</b> <i>{{Phonetic}}</i>
                 </div>
                 {{Image}}
+                {{Audio}}
                 """,
                 "afmt": """
                 {{FrontSide}}
@@ -108,6 +111,25 @@ def generate_anki_package(
                     media_files.append(image_path)
             except Exception as e:
                 print(f"⚠️ Failed to fetch/save image for '{word}': {e}")
+        audio_filename = f"{word}.mp3".replace(" ", "_")
+        audio_path = os.path.join(media_output_dir, audio_filename)
+
+        # Generate with gTTS only if not exists
+        if not os.path.exists(audio_path):
+            try:
+                tts = gTTS(text=word, lang='en')
+                tts.save(audio_path)
+                print(f"🔊 Audio generated for '{word}'")
+            except Exception as e:
+                print(f"⚠️ Failed to generate audio for '{word}': {e}")
+                audio_filename = ""  # skip audio on failure
+
+        # Add to media if audio generated
+        if audio_filename:
+            media_files.append(audio_path)
+            audio_html = f"[sound:{audio_filename}]"
+        else:
+            audio_html = ""
 
         # ✅ Create the card
         note = genanki.Note(
@@ -120,7 +142,8 @@ def generate_anki_package(
                 translation,
                 word_info.get("part_of_speech", ""),
                 visible_tags,
-                image_html
+                image_html,
+                audio_html
             ],
             tags=tags
         )
