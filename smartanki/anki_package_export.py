@@ -154,14 +154,8 @@ def generate_anki_package(
     genanki.Package(deck, media_files=media_files).write_to_file(output_path)
     print(f"📦 Anki deck exported to local  {output_path} ")
 
-#     TODO fing bug with naming  from anki apkg_path = args.apkg or os.path.join("anki_exports", deck_filename)
-# This creates "anki_exports/A-B-C.apkg"
-# generate_anki_package(
-#     word_sentence_map,
-#     cefr_filter=cefr,
-#     output_path=apkg_path,  # ← You ARE passing the correct path
-#     # ... other parameters
-# )
+
 
 # TODO add closing anki if failed
+
 

@@ -42,4 +42,10 @@ def parser_function():
     # REVIEW
     subparsers.add_parser("review", help="Run spaced repetition review session")
 
+    # WRITING
+    parser_writing = subparsers.add_parser("writing",
+                                           help="Write in CLI with Russian word translation and glossary builder")
+    parser_writing.add_argument("--import-to-anki", action="store_true",
+                                help="Automatically import glossary to Anki after writing")
+
     return parser

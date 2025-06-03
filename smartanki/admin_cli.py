@@ -57,3 +57,4 @@ def handle_admin(args):
         print(f"✅ Imported {len(imported_words)} new CEFR-filtered words from: {args.filepath}")
         for w in sorted(imported_words):
             print("  ➕", w)
+# TODO add command empty input and empty output

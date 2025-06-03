@@ -2,6 +2,7 @@ from smartanki.admin_cli import handle_admin
 from smartanki.config_cli import handle_config
 from smartanki.review import run_review_session
 from smartanki.run_CLI import handle_run
+from smartanki.writing_cli import handle_writing
 
 
 def task_switcher(args):
@@ -13,3 +14,5 @@ def task_switcher(args):
         run_review_session()
     elif args.command == "config":
         handle_config(args)
+    elif args.command == "writing":
+        handle_writing(import_to_anki=args.import_to_anki)
