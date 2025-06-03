@@ -8,6 +8,7 @@ from smartanki.highlight_word import highlight_word
 from smartanki.image_fetcher import fetch_image_url
 from smartanki.utils import clean_word
 
+
 def generate_anki_package(
         word_sentence_map,
         cefr_filter,
@@ -42,11 +43,9 @@ def generate_anki_package(
             {
                 "name": "SmartAnki Card",
                 "qfmt": """
-                <div style='font-size:20px'>
-                  <b>{{Word}}</b> <i>{{Phonetic}}</i>
-                </div>
-                {{Image}}
-                {{Audio}}
+                <div style='font-size:20px'> <b>{{Word}}</b> [<i>{{Phonetic}}</i>] </div>
+                <div style='text-align: center'>  {{Image}} </div>
+                 <div style='text-align: center'> {{Audio}} </div>
                 """,
                 "afmt": """
                 {{FrontSide}}
@@ -154,8 +153,4 @@ def generate_anki_package(
     genanki.Package(deck, media_files=media_files).write_to_file(output_path)
     print(f"📦 Anki deck exported to local  {output_path} ")
 
-
-
 # TODO add closing anki if failed
-
-

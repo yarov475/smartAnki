@@ -8,8 +8,10 @@ from smartanki.dictionary_api import get_word_data
 from smartanki.utils import clean_word
 from smartanki.anki_package_export import generate_anki_package
 from smartanki.anki_connect_auto_importer import auto_import_to_anki  # if you have this utility
+from smartanki.writing_utils import check_grammar
 
-WRITING_DIR = "writing_logs"
+WRITING_DIR = "anki_exports/writing_logs"
+
 os.makedirs(WRITING_DIR, exist_ok=True)
 
 translator = HuggingFaceTranslator("Helsinki-NLP/opus-mt-ru-en")
@@ -34,6 +36,8 @@ def handle_writing(import_to_anki=False):
         print("\n✅ Writing session ended.\n")
 
     full_text = "\n".join(lines)
+    grammar_matches = check_grammar(full_text)
+
     glossary = []
     glossary_map = {}
     seen = set()
@@ -89,8 +93,17 @@ def handle_writing(import_to_anki=False):
             for m in sorted(set(misspelled)):
                 f.write(f"- {m}\n")
                 print(f"❌  {m}\n")
+        f.write("\n\n🧠 Grammar Suggestions:\n")
+        for m in grammar_matches:
+            f.write(f"- {m.message} [Suggestions: {', '.join(m.replacements)}]\n")
 
     print(f"\n✅ Writing saved: {path}")
+
+
+
+
+
+
 
     # Optional export to Anki
     if import_to_anki and glossary:
@@ -112,4 +125,3 @@ def handle_writing(import_to_anki=False):
         )
 
         auto_import_to_anki(deck_path=apkg_path, expected_deck_name="SmartAnki Writing Deck")
-
