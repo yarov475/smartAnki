@@ -15,4 +15,4 @@ def task_switcher(args):
     elif args.command == "config":
         handle_config(args)
     elif args.command == "writing":
-        handle_writing(import_to_anki=args.import_to_anki)
+        handle_writing(args)

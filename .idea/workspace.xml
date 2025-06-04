@@ -4,13 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" deat: refresh requirments with pipreqs . --force --ignore .venv">
-      <change afterPath="$PROJECT_DIR$/smartanki/writing_utils.py" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment="added grammar tools">
+      <change afterPath="$PROJECT_DIR$/smartanki/init_Helsinki-NLP_opus-mt--ru-ут.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/py_transkate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/translate_to_eng.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_31_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_31_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_32_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_32_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_57_PM_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_57_PM_[Changes]1/user_words.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_57_PM__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_58_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_58_PM_[Changes]/user_words.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_58_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_5_27_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_5_27_PM_[Changes]/user_words.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_5_27_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_5_31_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_5_31_PM_[Changes]/user_words.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_5_31_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/user_words.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/anki_package_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_package_export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/task_switcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/task_switcher.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/smartanki/writing_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/writing_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/writing_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/writing_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/w.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writing_logs/2025-06-03-Actually_i.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writing_logs/2025-06-03-Hwllo_мир.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,10 +76,16 @@
     "Python.image_fetcher.executor": "Run",
     "Python.launch_anki.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.py_transkate.executor": "Run",
+    "Python.spellcheck.executor": "Run",
     "Python.test_runner.executor": "Run",
+    "Python.translater-to-eng.executor": "Run",
+    "Python.translater.executor": "Run",
+    "Python.translator.executor": "Run",
     "Python.utils.executor": "Run",
     "Python.vocab_db.executor": "Run",
     "Python.writing_cli.executor": "Run",
+    "Python.writing_utils.executor": "Run",
     "Python.yandex_test.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -67,6 +96,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Python apps\smartAnki\smartanki" />
       <recent name="E:\Python apps\smartAnki\input" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -466,7 +496,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748954100178</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="added grammar tools">
+      <option name="closed" value="true" />
+      <created>1748958428328</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1748958428329</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -482,7 +520,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value=" feat: amport txt to known db" />
     <MESSAGE value=" feat: added page rages" />
     <MESSAGE value=" feat: export pdf not clean font" />
     <MESSAGE value=" feat: export pdf  clean font" />
@@ -507,6 +544,7 @@
     <MESSAGE value=" deat: added audio" />
     <MESSAGE value=" deat: added writing tools" />
     <MESSAGE value=" deat: refresh requirments with pipreqs . --force --ignore .venv" />
-    <option name="LAST_COMMIT_MESSAGE" value=" deat: refresh requirments with pipreqs . --force --ignore .venv" />
+    <MESSAGE value="added grammar tools" />
+    <option name="LAST_COMMIT_MESSAGE" value="added grammar tools" />
   </component>
 </project>
