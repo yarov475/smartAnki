@@ -5,35 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment="added grammar tools">
-      <change afterPath="$PROJECT_DIR$/smartanki/init_Helsinki-NLP_opus-mt--ru-ут.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartanki/py_transkate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartanki/translate_to_eng.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_31_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_31_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_32_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_32_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_57_PM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_57_PM_[Changes]1/user_words.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_57_PM__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_58_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_58_PM_[Changes]/user_words.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_4_58_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_5_27_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_5_27_PM_[Changes]/user_words.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_5_27_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_5_31_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_5_31_PM_[Changes]/user_words.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_27-May-25_5_31_PM__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/DB/user_words.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki_gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/user_words.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/task_switcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/task_switcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/writing_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/writing_cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/writing_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/writing_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/w.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writing_logs/2025-06-03-Actually_i.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writing_logs/2025-06-03-Hwllo_мир.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/run_CLI.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/run_CLI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="cli--writing" />
+        <entry key="$PROJECT_DIR$" value="cli--writing-grammar" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,6 +53,7 @@
     "Python.launch_anki.executor": "Run",
     "Python.main.executor": "Run",
     "Python.py_transkate.executor": "Run",
+    "Python.smartanki_gui.executor": "Run",
     "Python.spellcheck.executor": "Run",
     "Python.test_runner.executor": "Run",
     "Python.translater-to-eng.executor": "Run",
@@ -89,9 +66,10 @@
     "Python.yandex_test.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "cli--writing-grammar",
+    "git-widget-placeholder": "GUI",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Python apps/smartAnki/smartanki"
+    "last_opened_file_path": "E:/Python apps/smartAnki/smartanki",
+    "settings.editor.selected.configurable": "vcs.Subversion"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -136,6 +114,9 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\yayar\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment="" />

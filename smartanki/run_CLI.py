@@ -15,9 +15,12 @@ from smartanki.vocab_db import init_db, add_srs_entry
 import os
 
 
-
-
-def handle_run(args):
+def handle_run(args, override_text=None):
+    # ...
+    if override_text:
+        text = override_text
+    else:
+        text = read_input_text(args.filepath, page_range=...)
     print("🔧 Initializing database and filters...")
     with tqdm(total=3, desc="🔧 Setup", unit="step") as pbar:
         init_db()
@@ -73,11 +76,10 @@ def handle_run(args):
         export_wordlist_to_pdf(word_sentence_map, args.pdf_output)
 
     deck_filename = deck_name_to_filename(args.deck_name)
-    print(args.deck_name,'!')
-    print(args.apkg,'!!! args.apkg')
+    print(args.deck_name, '!')
+    print(args.apkg, '!!! args.apkg')
     # apkg_path = args.apkg or os.path.join("anki_exports", deck_filename)
     apkg_path = f'anki_exports/{deck_filename}'
-
 
     print(f"🔍 Original deck name: {args.deck_name}")
     print(f"🔍 Converted filename: {deck_filename}")
