@@ -1,8 +1,8 @@
 # smartanki/dictionary_api.py
 
 import requests
-from smartanki.utils import clean_word
-from smartanki.wordnet_backup import get_wordnet_data
+from smartanki.utils.utils import clean_word
+from smartanki.utils.wordnet_backup import get_wordnet_data
 
 
 def get_word_data(word: str):

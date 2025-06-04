@@ -1,8 +1,8 @@
 
 
 import spacy
-from smartanki.cefr_filter import CEFRFilter
-from smartanki.vocab_db import is_known, add_known_words
+from smartanki.utils.cefr_filter import CEFRFilter
+from smartanki.DB.vocab_db import is_known, add_known_words
 
 nlp = spacy.load("en_core_web_sm")
 

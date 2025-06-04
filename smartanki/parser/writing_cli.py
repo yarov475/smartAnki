@@ -1,8 +1,8 @@
 # smartanki/handle_writing.py
 
-from smartanki.writing_cli_extracting import extracting
-from smartanki.writing_greating import greeting
-from smartanki.writing_utils import check_spelling, check_grammar
+from smartanki.utils.writing_cli_extracting import extracting
+from smartanki.utils.writing_greating import greeting
+from smartanki.utils.writing_utils import check_spelling, check_grammar
 
 
 def handle_writing(args):

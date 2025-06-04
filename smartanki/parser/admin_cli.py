@@ -1,9 +1,8 @@
-from smartanki.anki_import import import_known_words_from_anki
-from smartanki.cefr_filter import CEFRFilter
-from smartanki.pdf_reader import read_pdf_text
-from smartanki.vocab_db import clear_db, list_known_words, import_from_csv, add_known_words, is_known
-from smartanki.utils import clean_word
-import os
+from smartanki.utils.cefr_filter import CEFRFilter
+from smartanki.utils.pdf_reader import read_pdf_text
+from smartanki.DB.vocab_db import clear_db, list_known_words, import_from_csv, add_known_words, is_known
+from smartanki.utils.utils import clean_word
+
 
 def handle_admin(args):
     if args.admin_command == "clear-db":

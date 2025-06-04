@@ -1,6 +1,6 @@
 from cefrpy import CEFRAnalyzer
 
-from smartanki.utils import clean_word
+from smartanki.utils.utils import clean_word
 
 CEFR_RANK = {
     'A1': 1, 'A2': 2,

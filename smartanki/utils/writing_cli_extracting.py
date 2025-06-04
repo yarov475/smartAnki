@@ -1,9 +1,9 @@
 import re
 
-from smartanki.dictionary_api import get_word_data
-from smartanki.translate_to_eng import translate_to_english
-from smartanki.vocab_db import add_srs_entry
-from smartanki.writing_save_to_filei import save_yo_file
+from smartanki.API.dictionary_api import get_word_data
+from smartanki.utils.translate_to_eng import translate_to_english
+from smartanki.DB.vocab_db import add_srs_entry
+from smartanki.utils.writing_save_to_filei import save_yo_file
 
 
 def extracting(glossary, grammar_matches, spelling_errors, unknown_words, user_input):

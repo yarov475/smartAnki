@@ -1,7 +1,7 @@
 # smartanki/anki_import.py
 
 import csv
-from smartanki.vocab_db import add_known_words
+from smartanki.DB.vocab_db import add_known_words
 import re
 
 def import_known_words_from_anki(csv_path):

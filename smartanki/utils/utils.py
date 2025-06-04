@@ -1,7 +1,7 @@
 import re
 
-from smartanki.pdf_reader import read_pdf_text
-from smartanki.web_scraper import scrape_webpage
+from smartanki.utils.pdf_reader import read_pdf_text
+from smartanki.utils.web_scraper import scrape_webpage
 
 
 

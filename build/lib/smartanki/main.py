@@ -1,6 +1,6 @@
-from smartanki.cefr_filter import CEFRFilter
-from smartanki.extractor import extract_new_words
-from smartanki.anki_export import generate_anki_csv
+from smartanki.utils.cefr_filter import CEFRFilter
+from smartanki.utils.extractor import extract_new_words
+from smartanki.parser.ANKI.anki_export import generate_anki_csv
 from vocab_db import init_db
 
 # Setup

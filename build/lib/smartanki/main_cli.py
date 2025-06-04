@@ -1,11 +1,11 @@
 # main_cli.py
 
 import argparse
-from smartanki.vocab_db import init_db
-from smartanki.cefr_filter import CEFRFilter
-from smartanki.extractor import extract_new_words
-from smartanki.anki_export import generate_anki_csv
-from smartanki.pdf_reader import read_pdf_text
+from smartanki.DB.vocab_db import init_db
+from smartanki.utils.cefr_filter import CEFRFilter
+from smartanki.utils.extractor import extract_new_words
+from smartanki.parser.ANKI.anki_export import generate_anki_csv
+from smartanki.utils.pdf_reader import read_pdf_text
 import warnings
 
 warnings.filterwarnings("ignore", category=UserWarning)

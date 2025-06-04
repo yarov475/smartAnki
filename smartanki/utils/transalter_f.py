@@ -1,4 +1,4 @@
-from smartanki.translator import HuggingFaceTranslator
+from smartanki.utils.translator import HuggingFaceTranslator
 
 
 global _hf_translator

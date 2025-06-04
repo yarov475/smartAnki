@@ -1,5 +1,4 @@
-import pytest
-from smartanki.web_scraper import scrape_webpage
+from smartanki.utils.web_scraper import scrape_webpage
 
 def test_scrape_webpage_success():
     url = "https://en.wikipedia.org/wiki/Entropy"

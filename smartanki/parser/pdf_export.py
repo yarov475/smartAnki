@@ -3,8 +3,8 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.units import cm
 
-from smartanki.custom_font import custom_font, custom_style
-from smartanki.dictionary_api import get_word_data
+from smartanki.utils.custom_font import custom_font, custom_style
+from smartanki.API.dictionary_api import get_word_data
 custom_font()
 
 

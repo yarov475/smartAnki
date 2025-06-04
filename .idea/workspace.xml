@@ -4,16 +4,63 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment="feat: added list of undefined words">
-      <change afterPath="$PROJECT_DIR$/smartanki/writing_cli_extracting.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartanki/writing_greating.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smartanki/writing_save_to_filei.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/writing_logs/2025-06-04-I-are.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/writing_logs/2025-06-04-i-am.txt" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment="functions seporation">
+      <change afterPath="$PROJECT_DIR$/anki_exports/Sample-pdf-1.apkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/pyrenees.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anki_exports/pyrenees_unsplash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/API/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/DB/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/parser/ANKI/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/parser/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/parser/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki/utils/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/user_words.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/writing_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/writing_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/smartanki/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/smartanki/extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/smartanki/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/smartanki/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/smartanki/main_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/admin_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/parser/admin_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/anki_connect_auto_importer.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/API/anki_connect_auto_importer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/anki_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/parser/ANKI/anki_export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/anki_import.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/parser/ANKI/anki_import.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/anki_package_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/parser/ANKI/anki_package_export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/cefr_filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/cefr_filter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/config_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/parser/config_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/configurator.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/parser/configurator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/custom_font.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/custom_font.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/dictionary_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/API/dictionary_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/get_better_definition.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/API/get_better_definition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/get_definition_and_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/get_definition_and_example.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/get_phonetic_placeholder.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/get_phonetic_placeholder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/highlight_word.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/highlight_word.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/image_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/API/image_fetcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/init_Helsinki-NLP_opus-mt--ru-ут.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/agrosmodel/init_Helsinki-NLP_opus-mt--ru-ут.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/init_Helsinki-NLP_opus-mt-en-ru.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/agrosmodel/init_Helsinki-NLP_opus-mt-en-ru.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/parser/parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/pdf_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/parser/pdf_export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/pdf_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/pdf_reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/py_transkate.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/py_transkate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/review.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/parser/review.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/run_CLI.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/parser/run_CLI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/task_switcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/parser/task_switcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/transalter_f.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/transalter_f.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/translate_to_eng.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/translate_to_eng.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/translator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/vocab_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/DB/vocab_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/web_scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/web_scraper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/wordnet_backup.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/wordnet_backup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/writing_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/parser/writing_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/writing_cli_extracting.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/writing_cli_extracting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/writing_greating.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/writing_greating.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/writing_save_to_filei.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/writing_save_to_filei.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/writing_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/utils/writing_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/yandex_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/API/yandex_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_srs.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_srs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_top_n_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_top_n_extraction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_web_scrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_web_scrapper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,17 +118,21 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "cli--refactor",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Python apps/smartAnki/smartanki"
+    "last_opened_file_path": "E:/Python apps/smartAnki/smartanki/utils"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Python apps\smartAnki\smartanki\ANKI" />
       <recent name="E:\Python apps\smartAnki\smartanki" />
       <recent name="E:\Python apps\smartAnki\input" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Python apps\smartAnki" />
-      <recent name="E:\Python apps\smartAnki\smartanki" />
+      <recent name="E:\Python apps\smartAnki\smartanki\utils" />
+      <recent name="E:\Python apps\smartAnki\smartanki\parser" />
+      <recent name="E:\Python apps\smartAnki\smartanki\parser\ANKI" />
+      <recent name="E:\Python apps\smartAnki\smartanki\agrosmodel" />
+      <recent name="E:\Python apps\smartAnki\smartanki\DB" />
     </key>
   </component>
   <component name="RunManager">
@@ -98,7 +149,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="E:\Python apps\smartAnki\smartanki\main.py" />
+      <option name="SCRIPT_NAME" value="E:\Python apps\smartAnki\smartanki\utils\main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -492,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749043906576</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="functions seporation">
+      <option name="closed" value="true" />
+      <created>1749045449651</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1749045449651</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -508,7 +567,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value=" feat: export pdf not clean font" />
     <MESSAGE value=" feat: export pdf  clean font" />
     <MESSAGE value=" feat added : ofline translater en_ru.argosmodel" />
     <MESSAGE value=" feat added : ofline translater en_ru.ml" />
@@ -533,6 +591,7 @@
     <MESSAGE value=" deat: refresh requirments with pipreqs . --force --ignore .venv" />
     <MESSAGE value="added grammar tools" />
     <MESSAGE value="feat: added list of undefined words" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added list of undefined words" />
+    <MESSAGE value="functions seporation" />
+    <option name="LAST_COMMIT_MESSAGE" value="functions seporation" />
   </component>
 </project>

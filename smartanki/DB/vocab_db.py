@@ -5,7 +5,7 @@ import os
 import csv
 from typing import List
 from contextlib import closing
-from smartanki.utils import clean_word
+from smartanki.utils.utils import clean_word
 
 # === DB SETUP ===
 

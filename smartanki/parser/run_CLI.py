@@ -1,16 +1,14 @@
-import os
-
 from tqdm import tqdm
-from smartanki.anki_connect_auto_importer import auto_import_to_anki
-from smartanki.anki_export import generate_anki_csv
-from smartanki.anki_package_export import generate_anki_package
-from smartanki.cefr_filter import CEFRFilter
-from smartanki.dictionary_api import get_word_data
-from smartanki.extractor import extract_new_words
-from smartanki.pdf_export import export_wordlist_to_pdf
-from smartanki.translator import translate_to_russian
-from smartanki.utils import parse_page_range, read_input_text, deck_name_to_filename
-from smartanki.vocab_db import init_db, add_srs_entry
+from smartanki.API.anki_connect_auto_importer import auto_import_to_anki
+from smartanki.parser.ANKI.anki_export import generate_anki_csv
+from smartanki.parser.ANKI.anki_package_export import generate_anki_package
+from smartanki.utils.cefr_filter import CEFRFilter
+from smartanki.API.dictionary_api import get_word_data
+from smartanki.utils.extractor import extract_new_words
+from smartanki.parser.pdf_export import export_wordlist_to_pdf
+from smartanki.utils.translator import translate_to_russian
+from smartanki.utils.utils import parse_page_range, read_input_text, deck_name_to_filename
+from smartanki.DB.vocab_db import init_db, add_srs_entry
 
 import os
 

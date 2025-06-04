@@ -2,7 +2,7 @@ import language_tool_python
 from spellchecker import SpellChecker
 import re
 
-from smartanki.translate_to_eng import translate_to_english
+from smartanki.utils.translate_to_eng import translate_to_english
 
 
 def check_spelling(text):

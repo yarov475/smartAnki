@@ -1,9 +1,9 @@
 import csv
 import os
-from smartanki.dictionary_api import get_word_data
-from smartanki.highlight_word import highlight_word
-from smartanki.translator import translate_to_russian
-from smartanki.utils import clean_word
+from smartanki.API.dictionary_api import get_word_data
+from smartanki.utils.highlight_word import highlight_word
+from smartanki.utils.translator import translate_to_russian
+from smartanki.utils.utils import clean_word
 
 
 def generate_anki_csv(word_sentence_map, output_file='anki_exports/anki_cards.csv', translate=True):

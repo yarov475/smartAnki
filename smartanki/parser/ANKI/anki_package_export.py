@@ -2,11 +2,11 @@ import os
 import genanki
 from gtts import gTTS
 
-from smartanki.dictionary_api import get_word_data
-from smartanki.translator import translate_to_russian
-from smartanki.highlight_word import highlight_word
-from smartanki.image_fetcher import fetch_image_url
-from smartanki.utils import clean_word
+from smartanki.API.dictionary_api import get_word_data
+from smartanki.utils.translator import translate_to_russian
+from smartanki.utils.highlight_word import highlight_word
+from smartanki.API.image_fetcher import fetch_image_url
+from smartanki.utils.utils import clean_word
 
 
 def generate_anki_package(

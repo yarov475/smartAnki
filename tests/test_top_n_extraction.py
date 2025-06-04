@@ -1,6 +1,6 @@
 import pytest
 from collections import defaultdict
-from smartanki.extractor import extract_new_words
+from smartanki.utils.extractor import extract_new_words
 
 # Mock spaCy
 import spacy

@@ -1,5 +1,4 @@
-from smartanki.vocab_db import get_due_srs_entries, update_srs_review, remove_srs_entry
-from datetime import date
+from smartanki.DB.vocab_db import get_due_srs_entries, update_srs_review, remove_srs_entry
 
 
 def run_review_session():

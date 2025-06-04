@@ -1,7 +1,7 @@
 import spacy
 from collections import Counter
-from smartanki.utils import clean_word
-from smartanki.vocab_db import is_known, add_known_words
+from smartanki.utils.utils import clean_word
+from smartanki.DB.vocab_db import is_known, add_known_words
 
 nlp = spacy.load("en_core_web_sm")
 nlp.max_length = 2_000_000  # Allow long texts

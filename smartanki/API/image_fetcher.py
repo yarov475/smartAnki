@@ -7,7 +7,7 @@ UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY")
 
 
 
-from smartanki.yandex_api import generate_yandex_image
+from smartanki.API.yandex_api import generate_yandex_image
 
 
 

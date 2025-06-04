@@ -1,8 +1,8 @@
 import pytest
-from smartanki.vocab_db import remove_srs_entry
-from smartanki.vocab_db import get_db_connection
-from datetime import date, timedelta
-from smartanki.vocab_db import (
+from smartanki.DB.vocab_db import remove_srs_entry
+from smartanki.DB.vocab_db import get_db_connection
+from datetime import date
+from smartanki.DB.vocab_db import (
     init_db,
     add_srs_entry,
     get_due_srs_entries,
@@ -47,7 +47,7 @@ def test_update_srs_review_correct():
 
 
 def test_update_srs_review_incorrect():
-    from smartanki.vocab_db import get_db_connection
+    from smartanki.DB.vocab_db import get_db_connection
     word = "prophecy"
     add_srs_entry(
         word=word,

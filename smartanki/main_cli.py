@@ -1,6 +1,6 @@
 import warnings
-from smartanki.parser import parser_function
-from smartanki.task_switcher import task_switcher
+from smartanki.parser.parser import parser_function
+from smartanki.parser.task_switcher import task_switcher
 warnings.filterwarnings("ignore", category=UserWarning)
 
 

@@ -1,4 +1,4 @@
-from smartanki.configurator import setup_config_interactively
+from smartanki.parser.configurator import setup_config_interactively
 
 
 def handle_config(args):
