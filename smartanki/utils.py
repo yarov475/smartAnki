@@ -56,11 +56,6 @@ def read_input_text(path_or_url: str, page_range=None) -> str:
         raise ValueError(f"❌ Unsupported file type: {path}. Use a .pdf, .txt, or URL.")
 
 
-import re
-
-
-import re
-
 def deck_name_to_filename(deck_name: str) -> str:
     """Convert a deck name to a safe filename ending with .apkg"""
     # Strip leading/trailing whitespace
