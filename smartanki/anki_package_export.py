@@ -1,12 +1,12 @@
-# smartanki/anki_package_export.py
-
-import genanki
 import os
+import genanki
+from gtts import gTTS
+
 from smartanki.dictionary_api import get_word_data
 from smartanki.translator import translate_to_russian
-from smartanki.anki_export import highlight_word
+from smartanki.highlight_word import highlight_word
 from smartanki.image_fetcher import fetch_image_url
-import requests
+from smartanki.utils import clean_word
 
 
 def generate_anki_package(
@@ -18,7 +18,8 @@ def generate_anki_package(
         deck_name="SmartAnki Vocabulary Deck",
         offline_translate=False,
         force_google=False,
-        with_images=False
+        with_images=False,
+        force_ai_image=False
 ):
     media_files = []
     if custom_tags is None:
@@ -26,7 +27,7 @@ def generate_anki_package(
 
     model = genanki.Model(
         model_id=1607392319,
-        name=deck_name,
+        name='SmartAnkiModel',
         fields=[
             {"name": "Word"},
             {"name": "Phonetic"},
@@ -35,97 +36,121 @@ def generate_anki_package(
             {"name": "Translation"},
             {"name": "POS"},
             {"name": "Tags"},
-            {"name": "Image"}
+            {"name": "Image"},
+            {"name": "Audio"},
         ],
         templates=[
             {
                 "name": "SmartAnki Card",
                 "qfmt": """
-        <div style='font-size:20px'>
-          <b>{{Word}}</b> <i>{{Phonetic}}</i>
-        </div>
-        {{Image}}
-        """,
+                <div style='font-size:20px'> <b>{{Word}}</b> [<i>{{Phonetic}}</i>] </div>
+                <div style='text-align: center'>  {{Image}} </div>
+                 <div style='text-align: center'> {{Audio}} </div>
+                """,
                 "afmt": """
-        {{FrontSide}}
-        <hr>
-        <div style='font-size:18px'><b>Definition:</b><br>{{Definition}}</div><br>
-        <div style='color:blue'><b>Example:</b><br>{{Example}}</div><br>
-        <div style='color:green'><b>Translation:</b><br>{{Translation}}</div><br>
-        <div style='font-style:italic'><b>Part of speech:</b> {{POS}}</div><br>
-        <div style='font-style:italic'><b>Tags:</b> {{Tags}}</div>
-        """
+                {{FrontSide}}
+                <hr>
+                <div style='font-size:18px'><b>Definition:</b><br>{{Definition}}</div><br>
+                <div style='color:blue'><b>Example:</b><br>{{Example}}</div><br>
+                <div style='color:green'><b>Translation:</b><br>{{Translation}}</div><br>
+                <div style='font-style:italic'><b>Part of speech:</b> {{POS}}</div><br>
+                <div style='font-style:italic'><b>Tags:</b> {{Tags}}</div>
+                """
             }
         ]
-
     )
 
     deck = genanki.Deck(
         deck_id=2059400110,
-        name='SmartAnki Vocabulary Deck'
+        name=deck_name
     )
 
     skipped = []
 
+    # Ensure output folder exists
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    media_output_dir = os.path.dirname(output_path)
+
     for word, sentence in word_sentence_map.items():
-        word_info = get_word_data(word)
-        if not word_info or not word_info["definition"].strip():
+        cleaned_word = clean_word(word)
+        word_info = get_word_data(cleaned_word)
+        if not word_info or not word_info.get("definition", "").strip():
+            print(f"⚠️ Skipping '{word}' – no definition available.")
             skipped.append(word)
             continue
 
-        # Highlight word in English sentence
         highlighted_example = highlight_word(sentence, word)
-
-        # Translate and highlight the word in translation
         translation = translate_to_russian(
             sentence,
             offline_only=offline_translate,
             force_google=force_google
         )
 
-        # 🔍 Get CEFR level and source for tagging
+        # Tags
         level, source = cefr_filter.get_cefr_level(word, debug=False)
+        tags = list(custom_tags)
 
-        tags = list(custom_tags)  # Start with user-defined tags
         if level:
+            tags.append(f"cefr::{level}")  # ✅ Safe: no tuple, just string
+        if level and isinstance(level, str):
             tags.append(f"cefr::{level}")
-        if source:
-            tags.append(f"source::{source}")
 
         visible_tags = ", ".join(tags)
+        print(f"🔖 Tags for '{word}': {tags}")
+
+        # 🔽 Image Handling
         image_html = ""
         if with_images:
-            image_url = fetch_image_url(word)
-            if image_url:
-                image_filename = f"{word}.jpg"
-                image_path = os.path.join("anki_exports", image_filename)
-
-                try:
-                    img_data = requests.get(image_url).content
-                    with open(image_path, "wb") as f:
-                        f.write(img_data)
+            try:
+                result = fetch_image_url(word, force_ai=force_ai_image, output_dir=media_output_dir)
+                if result and result["type"] == "path":
+                    image_path = result["data"]
+                    image_name = os.path.basename(image_path)
+                    image_html = f"<img src='{image_name}' style='max-height:200px;'>"
                     media_files.append(image_path)
-                    image_html = f"<img src='{os.path.basename(image_path)}' style='max-height:200px;'>"
+            except Exception as e:
+                print(f"⚠️ Failed to fetch/save image for '{word}': {e}")
+        audio_filename = f"{word}.mp3".replace(" ", "_")
+        audio_path = os.path.join(media_output_dir, audio_filename)
 
-                except Exception as e:
-                    print(f"⚠️ Could not download image for {word}: {e}")
+        # Generate with gTTS only if not exists
+        if not os.path.exists(audio_path):
+            try:
+                tts = gTTS(text=word, lang='en')
+                tts.save(audio_path)
+                print(f"🔊 Audio generated for '{word}'")
+            except Exception as e:
+                print(f"⚠️ Failed to generate audio for '{word}': {e}")
+                audio_filename = ""  # skip audio on failure
+
+        # Add to media if audio generated
+        if audio_filename:
+            media_files.append(audio_path)
+            audio_html = f"[sound:{audio_filename}]"
+        else:
+            audio_html = ""
+
+        # ✅ Create the card
         note = genanki.Note(
             model=model,
             fields=[
                 word_info["word"],
-                word_info["phonetic"],
+                word_info.get("phonetic", ""),
                 word_info["definition"],
                 highlighted_example,
                 translation,
-                word_info["part_of_speech"],
+                word_info.get("part_of_speech", ""),
                 visible_tags,
                 image_html,
+                audio_html
             ],
             tags=tags
         )
 
         deck.add_note(note)
 
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    genanki.Package(deck, media_files).write_to_file(output_path)
-    print(f"📦 Anki deck exported to {output_path}")
+    # Save the package
+    genanki.Package(deck, media_files=media_files).write_to_file(output_path)
+    print(f"📦 Anki deck exported to local  {output_path} ")
+
+# TODO add closing anki if failed

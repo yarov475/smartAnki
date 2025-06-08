@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment=" feat added : pytests">
-      <change afterPath="$PROJECT_DIR$/smartanki/image_fetcher.py" afterDir="false" />
+    <list default="true" id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment="added grammar tools">
+      <change afterPath="$PROJECT_DIR$/smartanki/DB/user_words.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smartanki_gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anki_exports/test-3.apkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/user_anki.csv" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/user_words.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_words.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/sample.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/anki_package_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/anki_package_export.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartanki/main_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/main_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartanki/run_CLI.py" beforeDir="false" afterPath="$PROJECT_DIR$/smartanki/run_CLI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="fix/multiple-issues-and-paths" />
+        <entry key="$PROJECT_DIR$" value="cli--writing-grammar" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,21 +45,36 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.ankiConnect.executor": "Run",
+    "Python.anki_importer.executor": "Run",
+    "Python.deepaiimggen.executor": "Run",
     "Python.dictionary_api.executor": "Run",
     "Python.image_fetcher.executor": "Run",
+    "Python.launch_anki.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.py_transkate.executor": "Run",
+    "Python.smartanki_gui.executor": "Run",
+    "Python.spellcheck.executor": "Run",
     "Python.test_runner.executor": "Run",
+    "Python.translater-to-eng.executor": "Run",
+    "Python.translater.executor": "Run",
+    "Python.translator.executor": "Run",
     "Python.utils.executor": "Run",
     "Python.vocab_db.executor": "Run",
+    "Python.writing_cli.executor": "Run",
+    "Python.writing_utils.executor": "Run",
+    "Python.yandex_test.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "CLI-translaters-Helsinki-NLP/opus-mt-en-ru-and-googletranslate",
+    "git-widget-placeholder": "GUI",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Python apps/smartAnki/smartanki"
+    "last_opened_file_path": "E:/Python apps/smartAnki/smartanki",
+    "settings.editor.selected.configurable": "vcs.Subversion"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Python apps\smartAnki\smartanki" />
       <recent name="E:\Python apps\smartAnki\input" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -102,6 +114,9 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\yayar\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="20454c56-f7de-4aea-9d51-0f192f8673f8" name="Changes" comment="" />
@@ -278,31 +293,239 @@
       <option name="project" value="LOCAL" />
       <updated>1748432451769</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary=" feat added : unsplash img fetch">
+      <option name="closed" value="true" />
+      <created>1748437072009</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1748437072010</updated>
+    </task>
+    <task id="LOCAL-00023" summary=" feat added : installed nitrosocke/Arcane-Diffusion">
+      <option name="closed" value="true" />
+      <created>1748448283219</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1748448283220</updated>
+    </task>
+    <task id="LOCAL-00024" summary=" feat added : installed nitrosocke/Arcane-Diffusion">
+      <option name="closed" value="true" />
+      <created>1748448456478</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1748448456478</updated>
+    </task>
+    <task id="LOCAL-00025" summary=" feat added : installed nitrosocke/Arcane-Diffusion gnore">
+      <option name="closed" value="true" />
+      <created>1748448545162</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1748448545162</updated>
+    </task>
+    <task id="LOCAL-00026" summary=" feat added : installed nitrosocke/Arcane-Diffusion gnore">
+      <option name="closed" value="true" />
+      <created>1748448705454</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1748448705454</updated>
+    </task>
+    <task id="LOCAL-00027" summary=" feat added : installed nitrosocke/Arcane-Diffusion gnore">
+      <option name="closed" value="true" />
+      <created>1748448793503</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1748448793503</updated>
+    </task>
+    <task id="LOCAL-00028" summary=" feat added : installed nitrosocke/Arcane-Diffusion gnore">
+      <option name="closed" value="true" />
+      <created>1748448986097</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1748448986097</updated>
+    </task>
+    <task id="LOCAL-00029" summary=" feat added added git ignore. stop tracking .env,smartanki/anki_exports input">
+      <option name="closed" value="true" />
+      <created>1748521058405</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1748521058405</updated>
+    </task>
+    <task id="LOCAL-00030" summary=" feat: added top_n flag">
+      <option name="closed" value="true" />
+      <created>1748522839967</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1748522839967</updated>
+    </task>
+    <task id="LOCAL-00031" summary=" feat: added top_n flag">
+      <option name="closed" value="true" />
+      <created>1748523002135</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1748523002135</updated>
+    </task>
+    <task id="LOCAL-00032" summary=" feat: read and delete db">
+      <option name="closed" value="true" />
+      <created>1748526295093</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1748526295093</updated>
+    </task>
+    <task id="LOCAL-00033" summary=" feat: added srs">
+      <option name="closed" value="true" />
+      <created>1748533190065</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1748533190065</updated>
+    </task>
+    <task id="LOCAL-00034" summary=" feat: debug ai generation of image DELETED api translation">
+      <option name="closed" value="true" />
+      <created>1748611841426</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1748611841426</updated>
+    </task>
+    <task id="LOCAL-00035" summary=" feat: added cleaner function">
+      <option name="closed" value="true" />
+      <created>1748697419699</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1748697419699</updated>
+    </task>
+    <task id="LOCAL-00036" summary=" feat: apkg by default DELETED cerffpy tag">
+      <option name="closed" value="true" />
+      <created>1748700558596</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1748700558596</updated>
+    </task>
+    <task id="LOCAL-00037" summary=" feat: sumtask and cobfig init">
+      <option name="closed" value="true" />
+      <created>1748706470745</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1748706470745</updated>
+    </task>
+    <task id="LOCAL-00038" summary=" feat: refactor">
+      <option name="closed" value="true" />
+      <created>1748713370728</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1748713370728</updated>
+    </task>
+    <task id="LOCAL-00039" summary=" feat: added import-words unstad of --import-anki-csv and --only import">
+      <option name="closed" value="true" />
+      <created>1748870996530</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1748870996530</updated>
+    </task>
+    <task id="LOCAL-00040" summary=" feat: fix auto export smartanki.apkg Fic cistom name withowt spaces BUG: cistom name with spases">
+      <option name="closed" value="true" />
+      <created>1748894838151</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1748894838151</updated>
+    </task>
+    <task id="LOCAL-00041" summary=" feat: fix auto export smartanki.apkg Fic cistom name withowt spaces fast-fix : cistom name with spases">
+      <option name="closed" value="true" />
+      <created>1748928016319</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1748928016319</updated>
+    </task>
+    <task id="LOCAL-00042" summary=" deat: added audio">
+      <option name="closed" value="true" />
+      <created>1748929950211</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1748929950211</updated>
+    </task>
+    <task id="LOCAL-00043" summary=" deat: added writing tools">
+      <option name="closed" value="true" />
+      <created>1748954048934</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1748954048934</updated>
+    </task>
+    <task id="LOCAL-00044" summary=" deat: refresh requirments with pipreqs . --force --ignore .venv">
+      <option name="closed" value="true" />
+      <created>1748954100178</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1748954100178</updated>
+    </task>
+    <task id="LOCAL-00045" summary="added grammar tools">
+      <option name="closed" value="true" />
+      <created>1748958428328</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1748958428329</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="init -- scripts" />
-    <MESSAGE value="added cli" />
-    <MESSAGE value="added cli 1" />
-    <MESSAGE value="smartanki 1 -- working" />
-    <MESSAGE value="smartanki FEAT lemmatizing, no save to usersword db" />
-    <MESSAGE value="FEAT: skipping word if no translation" />
-    <MESSAGE value="using cefrpy" />
-    <MESSAGE value=" feat: Added separation to sentenses" />
-    <MESSAGE value=" feat: added translation of sentsnses" />
-    <MESSAGE value=" feat: added  --not-translate  Disable sentence translation (enabled by default)" />
-    <MESSAGE value=" feat: added  apkg generation" />
-    <MESSAGE value=" feat: visible tags" />
-    <MESSAGE value=" feat: progrese bar" />
-    <MESSAGE value=" feat: amport txt to known db" />
     <MESSAGE value=" feat: added page rages" />
     <MESSAGE value=" feat: export pdf not clean font" />
     <MESSAGE value=" feat: export pdf  clean font" />
     <MESSAGE value=" feat added : ofline translater en_ru.argosmodel" />
     <MESSAGE value=" feat added : ofline translater en_ru.ml" />
     <MESSAGE value=" feat added : pytests" />
-    <option name="LAST_COMMIT_MESSAGE" value=" feat added : pytests" />
+    <MESSAGE value=" feat added : unsplash img fetch" />
+    <MESSAGE value=" feat added : installed nitrosocke/Arcane-Diffusion" />
+    <MESSAGE value=" feat added : installed nitrosocke/Arcane-Diffusion gnore" />
+    <MESSAGE value=" feat added added git ignore. stop tracking .env,smartanki/anki_exports input" />
+    <MESSAGE value=" feat: added top_n flag" />
+    <MESSAGE value=" feat: read and delete db" />
+    <MESSAGE value=" feat: added srs" />
+    <MESSAGE value=" feat: debug ai generation of image DELETED api translation" />
+    <MESSAGE value=" feat: added cleaner function" />
+    <MESSAGE value=" feat: apkg by default DELETED cerffpy tag" />
+    <MESSAGE value=" feat: sumtask and cobfig init" />
+    <MESSAGE value=" feat: refactor" />
+    <MESSAGE value=" feat: added import-words unstad of --import-anki-csv and --only import" />
+    <MESSAGE value=" feat: fix auto export smartanki.apkg Fic cistom name withowt spaces BUG: cistom name with spases" />
+    <MESSAGE value=" feat: fix auto export smartanki.apkg Fic cistom name withowt spaces fast-fix : cistom name with spases" />
+    <MESSAGE value=" deat: added audio" />
+    <MESSAGE value=" deat: added writing tools" />
+    <MESSAGE value=" deat: refresh requirments with pipreqs . --force --ignore .venv" />
+    <MESSAGE value="added grammar tools" />
+    <option name="LAST_COMMIT_MESSAGE" value="added grammar tools" />
   </component>
 </project>

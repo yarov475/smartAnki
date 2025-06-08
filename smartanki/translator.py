@@ -1,7 +1,7 @@
 # smartanki/translator.py
+
 from transformers import MarianMTModel, MarianTokenizer
 from typing import Optional
-from googletrans import Translator as GoogleTranslator
 
 class HuggingFaceTranslator:
     def __init__(self, model_name: str):
@@ -18,48 +18,25 @@ class HuggingFaceTranslator:
 _hf_model_name = "Helsinki-NLP/opus-mt-en-ru"
 try:
     _hf_translator = HuggingFaceTranslator(_hf_model_name)
-except (OSError, FileNotFoundError) as e: # More specific errors for model file issues
-    print(f"[⚠] Hugging Face model '{_hf_model_name}' failed to load. This can be due to missing model files (ensure it's downloaded, e.g., by running with internet first) or network issues. Error: {e}")
+except (OSError, FileNotFoundError) as e:
+    print(f"[⚠] Hugging Face model '{_hf_model_name}' failed to load. "
+          f"Make sure the model is downloaded for offline use. Error: {e}")
     _hf_translator = None
-except Exception as e: # General catch for other init errors
-    print(f"[⚠] Hugging Face model init failed: {e}")
+except Exception as e:
+    print(f"[⚠] Unexpected error initializing Hugging Face translator: {e}")
     _hf_translator = None
-
-# Initialize Google Translate as fallback
-_google_translator = GoogleTranslator()
 
 def translate_to_russian(text: str, offline_only: bool = False, force_google: bool = False) -> Optional[str]:
     """
-    Translate English text to Russian.
-    Allows specifying translation method: force Google, offline only, or hybrid (offline first).
+    Translate English text to Russian using Hugging Face model only.
+    Google Translate is removed. This version is fully offline.
     """
-    if force_google:
-        try:
-            result = _google_translator.translate(text, src="en", dest="ru")
-            return result.text
-        except Exception as e:
-            print(f"[⚠] Google Translate failed: {e}")
-            return None
-    elif offline_only:
-        if _hf_translator:
-            try:
-                return _hf_translator.translate(text)
-            except Exception as e:
-                print(f"[⚠] Offline translation failed. Helsinki-NLP/opus-mt-en-ru model may not be available or configured correctly. Please ensure it's downloaded and accessible by the Hugging Face transformers library. No fallback to online translation. Error: {e}")
-                return None
-        else:
-            print(f"[⚠] Offline translation failed. Helsinki-NLP/opus-mt-en-ru model may not be available or configured correctly. Please ensure it's downloaded and accessible by the Hugging Face transformers library. No fallback to online translation.")
-            return None
-    else: # Default: try Hugging Face first, then Google Translate
-        if _hf_translator:
-            try:
-                return _hf_translator.translate(text)
-            except Exception as e:
-                print(f"[⚠] Local Hugging Face translation failed: {e}")
-        # Fallback to Google Translate
-        try:
-            result = _google_translator.translate(text, src="en", dest="ru")
-            return result.text
-        except Exception as e:
-            print(f"[⚠] Google Translate failed: {e}")
-            return None
+    if not _hf_translator:
+        print("[⚠] Offline translator not available.")
+        return None
+
+    try:
+        return _hf_translator.translate(text)
+    except Exception as e:
+        print(f"[⚠] Offline translation failed. Ensure the Hugging Face model is available offline. Error: {e}")
+        return None

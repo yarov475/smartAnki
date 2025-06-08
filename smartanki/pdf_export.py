@@ -1,34 +1,16 @@
-import os
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.units import cm
+
+from smartanki.custom_font import custom_font, custom_style
 from smartanki.dictionary_api import get_word_data
-from reportlab.pdfbase.ttfonts import TTFont, TTFError
-from reportlab.pdfbase import pdfmetrics
-from reportlab.lib.styles import ParagraphStyle
-from reportlab.lib.enums import TA_LEFT
-
-# Register custom font
-# Construct path relative to this script's location
-script_dir = os.path.dirname(os.path.abspath(__file__))
-font_path = os.path.join(script_dir, "fonts", "DejaVuSans.ttf")
-
-try:
-    pdfmetrics.registerFont(TTFont("DejaVuSans", font_path))
-except FileNotFoundError:
-    print(f"[⚠] Font not found at {font_path}")
-except TTFError as e:
-    print(f"[⚠] Font loading failed: {e}")
+custom_font()
 
 
-custom_style = ParagraphStyle(
-    "Custom",
-    fontName="DejaVuSans",
-    fontSize=10.5,
-    leading=14,
-    alignment=TA_LEFT,
-)
+
+
+
 
 def export_wordlist_to_pdf(word_sentence_map, output_path="/smartAnki/anki_exports/anki_wordlist.pdf"):
     doc = SimpleDocTemplate(output_path, pagesize=A4, title="SmartAnki Word List")

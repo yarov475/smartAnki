@@ -1,8 +1,6 @@
-# smartanki/cefr_filter.py
-
-import csv
-import re
 from cefrpy import CEFRAnalyzer
+
+from smartanki.utils import clean_word
 
 CEFR_RANK = {
     'A1': 1, 'A2': 2,
@@ -12,49 +10,37 @@ CEFR_RANK = {
 
 
 class CEFRFilter:
-    def __init__(self, csv_path: str, user_level: str):
-        self.cefr_dict = {}  # word → level
-        self.user_level = user_level.upper()
-        self.user_rank = CEFR_RANK[self.user_level]
-        self.analyzer = CEFRAnalyzer()  # ✅ Use correct class
-        self.load_cefr_csv(csv_path)
+    def __init__(self, user_level: str):
+        self.user_level = user_level
+        self.user_rank = self.rank_cefr(user_level)
+        self.analyzer = CEFRAnalyzer()
 
-    def load_cefr_csv(self, csv_path):
-        with open(csv_path, newline='', encoding='utf-8') as f:
-            reader = csv.reader(f)
-            for row in reader:
-                if len(row) < 2:
-                    continue
-                raw_word, level = row[0].strip(), row[1].strip().upper()
-                for w in re.split(r'[/,]', raw_word):
-                    word = w.strip().lower()
-                    self.cefr_dict[word] = level
-
-    def get_cefr_level(self, word: str, debug=False):
-        word = word.lower().strip()
-
-        if word in self.cefr_dict:
-            level = self.cefr_dict[word]
+    def is_above_user_level(self, word: str, debug: bool = False) -> bool:
+        word = clean_word(word)
+        level, _ = self.get_cefr_level(word, debug=debug)
+        if level is None:
             if debug:
-                print(f"[DEBUG] CEFR level for '{word}': {level} (source: csv)")
-            return level, "csv"
+                print(f"⚠️ CEFR missing for '{word}' – treating as advanced")
+            return True
+        return self.rank_cefr(level) > self.user_rank
 
+    def get_cefr_level(self, word: str, debug: bool = False):
+        word = clean_word(word)
         try:
-            fallback_level = self.analyzer.get_average_word_level_CEFR(word)
-            if fallback_level is not None:
-                level_str = str(fallback_level)
-                if debug:
-                    print(f"[DEBUG] CEFR level for '{word}': {level_str} (source: cefrpy)")
-                return level_str, "cefrpy"
+            cefr_obj = self.analyzer.get_average_word_level_CEFR(word)
+            # Convert CEFRLevel object to string
+            cefr_str = str(cefr_obj) if cefr_obj is not None else None
+            if debug:
+                print(f"🧠 CEFR ({word}) = {cefr_str}")
+            return cefr_str, "cefrpy"
         except Exception as e:
             if debug:
-                print(f"[DEBUG] Failed to classify '{word}' via cefrpy: {e}")
+                print(f"Error getting CEFR for {word}: {e}")
+            return None, None
 
-        return None, "unknown"
-
-    def is_above_user_level(self, word: str, debug=False) -> bool:
-        level, source = self.get_cefr_level(word, debug=debug)
-        if not level:
-            return True  # Assume it's advanced
-        return CEFR_RANK.get(level, 99) > self.user_rank
-
+    def rank_cefr(self, level: str) -> int:
+        if level is None:
+            return 99
+        # Ensure level is a string
+        level_str = str(level) if not isinstance(level, str) else level
+        return CEFR_RANK.get(level_str, 99)
